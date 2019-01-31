@@ -262,6 +262,8 @@ module SVG
         min_value, max_value, @x_scale_division = x_label_range
         rv = []
         min_value.step( max_value, @x_scale_division ) {|v| rv << v}
+	# Step is non-inclusive of upper bounds, so add a final value if necessary:
+	rv << rv[-1] + @x_scale_division if rv[-1] < max_value
         return rv
       end
       alias :get_x_labels :get_x_values
@@ -319,6 +321,9 @@ module SVG
         end
         rv = []
         min_value.step( max_value, @y_scale_division ) {|v| rv << v}
+	# Step is non-inclusive of upper bounds, so add a final value if necessary:
+	rv << rv[-1] + @y_scale_division if rv[-1] < max_value
+	# If there is no range to display, add a dummy value
         rv << rv[0] + 1 if rv.length == 1
         return rv
       end
