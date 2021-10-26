@@ -9,12 +9,15 @@ module SVG
     #   require 'SVG/Graph/Pie'
     #
     #   fields = %w(Jan Feb Mar)
+    #   colors = ["#FFFFFF", "#FF0000", "#79FFD0"]
     #   data_sales_02 = [12, 45, 21]
     #
     #   graph = SVG::Graph::Pie.new({
-    #   	:height => 500,
-    # 	  :width  => 300,
-    # 	  :fields => fields,
+    #     :height => 500,
+    #     :width  => 300,
+    #     :fields => fields,
+    #     :fields => fields,
+    #     :colors => colors,
     #   })
     #
     #   graph.add_data({
@@ -340,6 +343,28 @@ module SVG
         (val * up).to_i / up
       end
 
+      def validate_color color
+        !!color[/\A#?(?:[A-F0-9]{3}){1,2}\z/i]
+      end
+
+      def config_colors
+        if @config[:colors].presence && @config[:colors].kind_of?(Array)
+          @config[:colors].each_with_index.map do |color, idx|
+            override_color(color, idx + 1) if validate_color(color)
+          end.compact.join("\n")
+        end
+      end
+
+      def override_color(color, idx)
+        return <<EOL
+.key#{idx},.fill#{idx}{
+  fill: #{color} !important;
+  fill-opacity: 0.7;
+  stroke: none;
+  stroke-width: 1px;
+}
+EOL
+      end
 
       def get_css
         return <<EOL
@@ -435,6 +460,7 @@ module SVG
 	stroke: none;
 	stroke-width: 1px;
 }
+#{config_colors}
 EOL
       end
     end
