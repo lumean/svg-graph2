@@ -1,7 +1,8 @@
 # executes all examples
 require 'svggraph'
+require './lib/svg_graph/version'
 
-puts SVG::Graph::VERSION
+puts SvgGraph::VERSION
 
 list = Dir.glob(File.expand_path("*.rb", __dir__))
 list.delete File.expand_path(__FILE__)

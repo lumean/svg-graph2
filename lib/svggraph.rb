@@ -1,9 +1,3 @@
-module SVG
-  module Graph
-    VERSION = '2.2.1'
-
-  end
-end
 require_relative 'SVG/Graph/C3js'
 require_relative 'SVG/Graph/Graph'
 require_relative 'SVG/Graph/DataPoint'

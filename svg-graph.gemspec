@@ -3,13 +3,13 @@
 # EDIT THIS FILE DIRECTLY
 # currently there are no Jeweler::Tasks in the rake file Rakefile,
 # setup of the dev toolchain including rake and juwelier will be done at a later stage.
-
-
-require_relative 'lib/svggraph'
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'svg_graph/version'
 
 Gem::Specification.new do |s|
   s.name = %q{svg-graph}
-  s.version = SVG::Graph::VERSION
+  s.version = SvgGraph::VERSION
 
   #s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = [%q{Sean Russell}, %q{Claudio Bustos}, %q{Liehann Loots}, %q{Piergiuliano Bossi}, %q{Manuel Widmer}]
@@ -58,7 +58,6 @@ the Perl original at all.
   #s.rubyforge_project = %q{ruby-statsample}
   #s.rubygems_version = %q{1.8.6}
   s.summary = %q{SVG:::Graph is a pure Ruby library for generating charts, which are a type of graph where the values of one axis are not scalar.}
-
   #if s.respond_to? :specification_version then
   #  s.specification_version = 3
   #

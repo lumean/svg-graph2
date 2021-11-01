@@ -1,6 +1,7 @@
 # executes all examples
 require_relative '../lib/svggraph'
-puts SVG::Graph::VERSION
+require_relative '../lib/svg_graph/version'
+puts SvgGraph::VERSION
 
 list = Dir.glob(File.expand_path("../examples/*.rb", __dir__))
 list.delete_if {|x| x.include?("run_all.rb")}
