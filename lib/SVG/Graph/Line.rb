@@ -42,7 +42,7 @@ module SVG
     #
     # = Examples
     #
-    # http://www.germane-software/repositories/public/SVG/test/single.rb
+    # https://github.com/lumean/svg-graph2/blob/master/examples/line.rb
     #
     # = Notes
     # Only number of fileds datapoints will be drawn, additional data values
