@@ -145,7 +145,7 @@
 }
 .line9{
 	fill: none;
-	stroke: #ccc6666;
+	stroke: #cc6666;
 	stroke-width: 1px;
 }
 .line10{
@@ -324,29 +324,29 @@
 <text class='xAxisLabels' x='486.0' y='428' style='text-anchor: middle'>aug</text>
 <path d='M486.0 396 v17' class='staggerGuideLine'/>
 <path d='M486.0 0 v396' class='guideLines'/>
-<text x='-16.5' y='400.0' class='yAxisLabels' style='text-anchor: middle' transform='translate( -12 0 ) rotate( 0 -16.5 400.0 ) '>-4.00</text>
-<text x='-16.5' y='364.0' class='yAxisLabels' style='text-anchor: middle' transform='translate( -12 0 ) rotate( 0 -16.5 364.0 ) '>-0.51</text>
+<text x='3' y='400.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 400.0 ) '>-4.00</text>
+<text x='3' y='364.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 364.0 ) '>-0.51</text>
 <path d='M0 360.0 h486.0' class='guideLines'/>
-<text x='-16.5' y='328.0' class='yAxisLabels' style='text-anchor: middle' transform='translate( -12 0 ) rotate( 0 -16.5 328.0 ) '>2.97</text>
+<text x='3' y='328.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 328.0 ) '>2.97</text>
 <path d='M0 324.0 h486.0' class='guideLines'/>
-<text x='-16.5' y='292.0' class='yAxisLabels' style='text-anchor: middle' transform='translate( -12 0 ) rotate( 0 -16.5 292.0 ) '>6.46</text>
+<text x='3' y='292.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 292.0 ) '>6.46</text>
 <path d='M0 288.0 h486.0' class='guideLines'/>
-<text x='-16.5' y='256.0' class='yAxisLabels' style='text-anchor: middle' transform='translate( -12 0 ) rotate( 0 -16.5 256.0 ) '>9.94</text>
+<text x='3' y='256.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 256.0 ) '>9.94</text>
 <path d='M0 252.0 h486.0' class='guideLines'/>
-<text x='-16.5' y='220.0' class='yAxisLabels' style='text-anchor: middle' transform='translate( -12 0 ) rotate( 0 -16.5 220.0 ) '>13.43</text>
+<text x='3' y='220.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 220.0 ) '>13.43</text>
 <path d='M0 216.0 h486.0' class='guideLines'/>
-<text x='-16.5' y='184.0' class='yAxisLabels' style='text-anchor: middle' transform='translate( -12 0 ) rotate( 0 -16.5 184.0 ) '>16.92</text>
+<text x='3' y='184.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 184.0 ) '>16.92</text>
 <path d='M0 180.0 h486.0' class='guideLines'/>
-<text x='-16.5' y='148.0' class='yAxisLabels' style='text-anchor: middle' transform='translate( -12 0 ) rotate( 0 -16.5 148.0 ) '>20.40</text>
+<text x='3' y='148.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 148.0 ) '>20.40</text>
 <path d='M0 144.0 h486.0' class='guideLines'/>
-<text x='-16.5' y='112.0' class='yAxisLabels' style='text-anchor: middle' transform='translate( -12 0 ) rotate( 0 -16.5 112.0 ) '>23.89</text>
+<text x='3' y='112.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 112.0 ) '>23.89</text>
 <path d='M0 108.0 h486.0' class='guideLines'/>
-<text x='-16.5' y='76.0' class='yAxisLabels' style='text-anchor: middle' transform='translate( -12 0 ) rotate( 0 -16.5 76.0 ) '>27.37</text>
+<text x='3' y='76.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 76.0 ) '>27.37</text>
 <path d='M0 72.0 h486.0' class='guideLines'/>
-<text x='-16.5' y='40.0' class='yAxisLabels' style='text-anchor: middle' transform='translate( -12 0 ) rotate( 0 -16.5 40.0 ) '>30.86</text>
+<text x='3' y='40.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 40.0 ) '>30.86</text>
 <path d='M0 36.0 h486.0' class='guideLines'/>
 <path d='M0.0 396.0 L0.0 313.3838209982788 69.42857142857143 168.80550774526677 138.85714285714286 323.71084337349396 208.28571428571428 282.4027538726334 277.7142857142857 272.07573149741825 347.14285714285717 199.7865748709122 416.57142857142856 220.4406196213425 486.0 334.0378657487091 486.0 396.0 416.57142857142856 396.0 347.14285714285717 396.0 277.7142857142857 396.0 208.28571428571428 396.0 138.85714285714286 396.0 69.42857142857143 396.0 0.0 396.0 Z' class='fill2'/>
-<path d='M0 396 L0.0 313.3838209982788 69.42857142857143 168.80550774526677 138.85714285714286 323.71084337349396 208.28571428571428 282.4027538726334 277.7142857142857 272.07573149741825 347.14285714285717 199.7865748709122 416.57142857142856 220.4406196213425 486.0 334.0378657487091 ' class='line2'/>
+<path d='M0.0 313.3838209982788 L69.42857142857143 168.80550774526677 138.85714285714286 323.71084337349396 208.28571428571428 282.4027538726334 277.7142857142857 272.07573149741825 347.14285714285717 199.7865748709122 416.57142857142856 220.4406196213425 486.0 334.0378657487091 ' class='line2'/>
 <circle cx='0.0' cy='313.3838209982788' r='2.5' class='dataPoint2'/>
 <circle cx='69.42857142857143' cy='168.80550774526677' r='2.5' class='dataPoint2'/>
 <circle cx='138.85714285714286' cy='323.71084337349396' r='2.5' class='dataPoint2'/>
@@ -356,7 +356,7 @@
 <circle cx='416.57142857142856' cy='220.4406196213425' r='2.5' class='dataPoint2'/>
 <circle cx='486.0' cy='334.0378657487091' r='2.5' class='dataPoint2'/>
 <path d='M0.0 313.3838209982788 L0.0 282.4027538726334 69.42857142857143 53.14285714285711 138.85714285714286 300.9913941480207 208.28571428571428 338.1686746987952 277.7142857142857 81.02581755593803 347.14285714285717 121.30120481927707 416.57142857142856 202.88468158347675 486.0 212.17900172117035 486.0 334.0378657487091 416.57142857142856 220.4406196213425 347.14285714285717 199.7865748709122 277.7142857142857 272.07573149741825 208.28571428571428 282.4027538726334 138.85714285714286 323.71084337349396 69.42857142857143 168.80550774526677 0.0 313.3838209982788 Z' class='fill1'/>
-<path d='M0 396 L0.0 282.4027538726334 69.42857142857143 53.14285714285711 138.85714285714286 300.9913941480207 208.28571428571428 338.1686746987952 277.7142857142857 81.02581755593803 347.14285714285717 121.30120481927707 416.57142857142856 202.88468158347675 486.0 212.17900172117035 ' class='line1'/>
+<path d='M0.0 282.4027538726334 L69.42857142857143 53.14285714285711 138.85714285714286 300.9913941480207 208.28571428571428 338.1686746987952 277.7142857142857 81.02581755593803 347.14285714285717 121.30120481927707 416.57142857142856 202.88468158347675 486.0 212.17900172117035 ' class='line1'/>
 <circle cx='0.0' cy='282.4027538726334' r='2.5' class='dataPoint1'/>
 <circle cx='69.42857142857143' cy='53.14285714285711' r='2.5' class='dataPoint1'/>
 <circle cx='138.85714285714286' cy='300.9913941480207' r='2.5' class='dataPoint1'/>

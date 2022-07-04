@@ -55,7 +55,7 @@ module SVG
     #
     # = Examples
     #
-    # http://www.germane-software/repositories/public/SVG/test/plot.rb
+    # https://github.com/lumean/svg-graph2/blob/master/examples/plot.rb
     #
     # = Notes
     #
@@ -285,6 +285,8 @@ module SVG
         min_value
       end
 
+      # get array of values for the x axis divisions, assuming left-most value starts
+      # exactly where the graph starts.
       def get_x_values
         max_value = max_x_range
         min_value = min_x_range
@@ -369,6 +371,7 @@ module SVG
       end
       alias :get_y_labels :get_y_values
 
+      # calculates the x,y coordinates of a datapoint in the plot area
       def calc_coords(x, y)
         coords = {:x => 0, :y => 0}
         # scale the coordinates, use float division / multiplication

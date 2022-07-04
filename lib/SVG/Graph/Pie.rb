@@ -36,7 +36,7 @@ module SVG
     #
     # = Examples
     #
-    # http://www.germane-software/repositories/public/SVG/test/single.rb
+    # https://github.com/lumean/svg-graph2/blob/master/examples/pie.rb
     #
     # == See also
     #

@@ -42,7 +42,7 @@ module SVG
     #
     # = Examples
     #
-    # http://www.germane-software/repositories/public/SVG/test/single.rb
+    # https://github.com/lumean/svg-graph2/blob/master/examples/line.rb
     #
     # = Notes
     # Only number of fileds datapoints will be drawn, additional data values
@@ -238,8 +238,9 @@ module SVG
             })
           end
 
+          matcher = /^(\S+ \S+) (.*)/.match lpath
           @graph.add_element("path", {
-            "d" => "M0 #@graph_height L" + lpath,
+            "d" => "M#{matcher[1]} L#{matcher[2]}",
             "class" => "line#{line}"
           })
 
@@ -319,7 +320,7 @@ module SVG
 }
 .line9{
 	fill: none;
-	stroke: #ccc6666;
+	stroke: #cc6666;
 	stroke-width: 1px;
 }
 .line10{

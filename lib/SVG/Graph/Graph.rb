@@ -906,7 +906,7 @@ module SVG
           if show_y_labels
             # x = 0, y = 0 is top left right next to graph area
             y = y_offset - (label_height * count)
-            x = (y_label_font_size - label_width) / 2.0
+            x = 3
 
             if stagger_y_labels && count % 2 == 1
               x -= stagger
@@ -929,7 +929,7 @@ module SVG
             text_str = @number_format % label if numeric?(label)
             text.text = text_str
             # note text-anchor is at bottom of textfield
-            text.attributes['style'] = 'text-anchor: middle'
+            text.attributes['style'] = 'text-anchor: end'
             degrees = rotate_y_labels
             text.attributes['transform'] =
               "translate( -#{font_size} 0 ) rotate( #{degrees} #{x} #{y} ) "

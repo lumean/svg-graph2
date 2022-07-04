@@ -59,6 +59,8 @@ the Perl original at all.
   #s.rubygems_version = %q{1.8.6}
   s.summary = %q{SVG:::Graph is a pure Ruby library for generating charts, which are a type of graph where the values of one axis are not scalar.}
 
+  s.add_dependency("rexml")
+
   #if s.respond_to? :specification_version then
   #  s.specification_version = 3
   #
@@ -71,4 +73,3 @@ the Perl original at all.
   #  s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
   #end
 end
-
