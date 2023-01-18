@@ -319,7 +319,7 @@ module SVG
 }
 .line9{
 	fill: none;
-	stroke: #ccc6666;
+	stroke: #cc6666;
 	stroke-width: 1px;
 }
 .line10{
