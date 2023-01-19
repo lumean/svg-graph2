@@ -1,5 +1,6 @@
 # executes all examples
-require 'svggraph'
+
+require File.expand_path("#{__FILE__}/../../lib/svggraph.rb")
 
 puts SVG::Graph::VERSION
 
