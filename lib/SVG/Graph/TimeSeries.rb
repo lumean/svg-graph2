@@ -60,7 +60,7 @@ module SVG
     #
     # = Examples
     #
-    # http://www.germane-software/repositories/public/SVG/test/timeseries.rb
+    # https://github.com/lumean/svg-graph2/blob/master/examples/timeseries.rb
     #
     # = Notes
     #

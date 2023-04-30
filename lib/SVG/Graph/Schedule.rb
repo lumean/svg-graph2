@@ -47,7 +47,7 @@ module SVG
     # 
     # = Examples
     #
-    # http://www.germane-software/repositories/public/SVG/test/schedule.rb
+    # https://github.com/lumean/svg-graph2/blob/master/examples/schedule.rb
     # 
     # = Notes
     # 
