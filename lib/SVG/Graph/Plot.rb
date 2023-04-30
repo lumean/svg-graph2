@@ -256,6 +256,7 @@ module SVG
         @min_x_cache
       end
 
+      # calculate the min and max x value as well as the scale division used for the x-axis
       def x_label_range
         max_value = max_x_range
         min_value = min_x_range
@@ -268,6 +269,7 @@ module SVG
         end
         scale_range = max_value - min_value
 
+        # either use the given step size or by default do 9 divisions.
         scale_division = scale_x_divisions || (scale_range / 9.0)
         @x_offset = 0
 
@@ -280,6 +282,8 @@ module SVG
         [min_value, max_value, scale_division]
       end
 
+      # get array of values for the x axis divisions, assuming left-most value starts
+      # exactly where the graph starts.
       def get_x_values
         min_value, max_value, @x_scale_division = x_label_range
         x_times = ((max_value-min_value)/@x_scale_division).round + 1
@@ -367,6 +371,7 @@ module SVG
         @graph_height.to_f / (values.length - 1)
       end
 
+      # calculates the x,y coordinates of a datapoint in the plot area
       def calc_coords(x, y)
         coords = {:x => 0, :y => 0}
         # scale the coordinates, use float division / multiplication

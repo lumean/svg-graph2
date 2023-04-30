@@ -2,6 +2,8 @@ TODO / Backlog
 * refactor various hardcoded constant pixel offsets in Graph class to use named constants or variables
 * Fix bug in Plot where min/max_x/y_value are not respected, TODO
 
+=== 2.2.2 /
+
 === 2.2.1 / 2020-12-25
 * Remove inline styling for data point labels and popups [thanks marnen, PR #23]
 * fix #29 text background not aligned close to axis due to missing anchors
