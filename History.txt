@@ -2,7 +2,12 @@ TODO / Backlog
 * refactor various hardcoded constant pixel offsets in Graph class to use named constants or variables
 * Fix bug in Plot where min/max_x/y_value are not respected, TODO
 
-=== 2.2.2 /
+=== 2.2.3 /
+
+=== 2.2.2 / 2023-04-30
+* fix line9 color typo in Line.rb [thanks, akostadinov #42]
+* anchor right y labels [thanks, akostadinov #44]
+* start line from first point, not 0 0 [thanks, akostadinov #43]
 
 === 2.2.1 / 2020-12-25
 * Remove inline styling for data point labels and popups [thanks marnen, PR #23]

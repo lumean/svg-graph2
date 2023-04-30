@@ -1,6 +1,6 @@
 module SVG
   module Graph
-    VERSION = '2.2.1'
+    VERSION = '2.2.2'
 
   end
 end

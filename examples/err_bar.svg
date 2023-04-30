@@ -197,28 +197,28 @@
 <path d='M 0.0 0 v468' class='axis' id='xAxis'/>
 <text class='xAxisLabels' x='114.75' y='483' style='text-anchor: middle'>Jan</text>
 <text class='xAxisLabels' x='344.25' y='483' style='text-anchor: middle'>Feb</text>
-<text x='-16.5' y='472.0' class='yAxisLabels' style='text-anchor: middle' transform='translate( -12 0 ) rotate( 0 -16.5 472.0 ) '>0.00</text>
-<text x='-16.5' y='433.0' class='yAxisLabels' style='text-anchor: middle' transform='translate( -12 0 ) rotate( 0 -16.5 433.0 ) '>2.10</text>
+<text x='3' y='472.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 472.0 ) '>0.00</text>
+<text x='3' y='433.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 433.0 ) '>2.10</text>
 <path d='M0 429.0 h459.0' class='guideLines'/>
-<text x='-16.5' y='394.0' class='yAxisLabels' style='text-anchor: middle' transform='translate( -12 0 ) rotate( 0 -16.5 394.0 ) '>4.20</text>
+<text x='3' y='394.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 394.0 ) '>4.20</text>
 <path d='M0 390.0 h459.0' class='guideLines'/>
-<text x='-16.5' y='355.0' class='yAxisLabels' style='text-anchor: middle' transform='translate( -12 0 ) rotate( 0 -16.5 355.0 ) '>6.30</text>
+<text x='3' y='355.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 355.0 ) '>6.30</text>
 <path d='M0 351.0 h459.0' class='guideLines'/>
-<text x='-16.5' y='316.0' class='yAxisLabels' style='text-anchor: middle' transform='translate( -12 0 ) rotate( 0 -16.5 316.0 ) '>8.40</text>
+<text x='3' y='316.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 316.0 ) '>8.40</text>
 <path d='M0 312.0 h459.0' class='guideLines'/>
-<text x='-16.5' y='277.0' class='yAxisLabels' style='text-anchor: middle' transform='translate( -12 0 ) rotate( 0 -16.5 277.0 ) '>10.50</text>
+<text x='3' y='277.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 277.0 ) '>10.50</text>
 <path d='M0 273.0 h459.0' class='guideLines'/>
-<text x='-16.5' y='238.0' class='yAxisLabels' style='text-anchor: middle' transform='translate( -12 0 ) rotate( 0 -16.5 238.0 ) '>12.60</text>
+<text x='3' y='238.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 238.0 ) '>12.60</text>
 <path d='M0 234.0 h459.0' class='guideLines'/>
-<text x='-16.5' y='199.0' class='yAxisLabels' style='text-anchor: middle' transform='translate( -12 0 ) rotate( 0 -16.5 199.0 ) '>14.70</text>
+<text x='3' y='199.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 199.0 ) '>14.70</text>
 <path d='M0 195.0 h459.0' class='guideLines'/>
-<text x='-16.5' y='160.0' class='yAxisLabels' style='text-anchor: middle' transform='translate( -12 0 ) rotate( 0 -16.5 160.0 ) '>16.80</text>
+<text x='3' y='160.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 160.0 ) '>16.80</text>
 <path d='M0 156.0 h459.0' class='guideLines'/>
-<text x='-16.5' y='121.0' class='yAxisLabels' style='text-anchor: middle' transform='translate( -12 0 ) rotate( 0 -16.5 121.0 ) '>18.90</text>
+<text x='3' y='121.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 121.0 ) '>18.90</text>
 <path d='M0 117.0 h459.0' class='guideLines'/>
-<text x='-16.5' y='82.0' class='yAxisLabels' style='text-anchor: middle' transform='translate( -12 0 ) rotate( 0 -16.5 82.0 ) '>21.00</text>
+<text x='3' y='82.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 82.0 ) '>21.00</text>
 <path d='M0 78.0 h459.0' class='guideLines'/>
-<text x='-16.5' y='43.0' class='yAxisLabels' style='text-anchor: middle' transform='translate( -12 0 ) rotate( 0 -16.5 43.0 ) '>23.10</text>
+<text x='3' y='43.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 43.0 ) '>23.10</text>
 <path d='M0 39.0 h459.0' class='guideLines'/>
 <rect x='10.0' y='282.2857142857143' width='209.5' height='185.71428571428572' class='fill1'/>
 <line x1='114.75' y1='300.85714285714283' x2='114.75' y2='263.7142857142857' style='stroke:rgb(0,0,0);stroke-width:1'/>
