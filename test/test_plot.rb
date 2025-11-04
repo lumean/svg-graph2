@@ -288,7 +288,6 @@ class TestSvgGraphPlot < Test::Unit::TestCase
 
     out=graph.burn()
     assert_match(/circle .*r='10'/, out)
-    assert_match(/circle .*onmouseover=.*/, out)
 
   end
 
@@ -319,7 +318,6 @@ class TestSvgGraphPlot < Test::Unit::TestCase
 
     out=graph.burn()
     assert_match(/circle .*r='1.23'/, out)
-    assert_match(/circle .*onmouseover=.*/, out)
 
   end
 end

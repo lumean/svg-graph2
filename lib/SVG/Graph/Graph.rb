@@ -558,9 +558,29 @@ module SVG
           end
           txt_width = label.length * font_size * 0.6 + 10
           tx = (x+txt_width > @graph_width ? x-5 : x+5)
+
+          # Add a circle to catch the mouseover
+          mouseover = Element.new( "circle" )
+          mouseover.add_attributes({
+            "cx" => x.to_s,
+            "cy" => y.to_s,
+            "r" => "#{popup_radius}",
+          })
+          if !url.nil?
+            href = Element.new("a")
+            href.add_attributes({
+              "xlink:href" => url,
+              "class" => "dataPointPopupTrigger",
+            })
+            href.add_element(mouseover)
+            @foreground.add_element(href)
+          else
+            mouseover.add_attribute("class", "dataPointPopupTrigger")
+            @foreground.add_element(mouseover)
+          end
+
           g = Element.new( "g" )
           g.attributes["id"] = g.object_id.to_s
-          g.attributes["visibility"] = "hidden"
 
           # First add the mask
           t = g.add_element( "text", {
@@ -583,27 +603,6 @@ module SVG
           t.text = label.to_s
 
           @foreground.add_element( g )
-
-          # add a circle to catch the mouseover
-          mouseover = Element.new( "circle" )
-          mouseover.add_attributes({
-            "cx" => x.to_s,
-            "cy" => y.to_s,
-            "r" => "#{popup_radius}",
-            "style" => "opacity: 0",
-            "onmouseover" =>
-              "document.getElementById(#{g.object_id.to_s}).style.visibility ='visible'",
-            "onmouseout" =>
-              "document.getElementById(#{g.object_id.to_s}).style.visibility = 'hidden'",
-          })
-          if !url.nil?
-            href = Element.new("a")
-            href.add_attribute("xlink:href", url)
-            href.add_element(mouseover)
-            @foreground.add_element(href)
-          else
-            @foreground.add_element(mouseover)
-          end
         elsif !url.nil?
           # add a circle to catch the mouseover
           mouseover = Element.new( "circle" )
@@ -1258,6 +1257,19 @@ module SVG
   font-weight: normal;
 }
 
+.dataPointPopupTrigger  {
+  fill: transparent;
+}
+
+.dataPointPopupTrigger + g {
+  visibility: hidden;
+}
+
+.dataPointPopupTrigger:hover + g,
+.dataPointPopupTrigger:focus-visible + g {
+  visibility: initial;
+}
+
 .dataPointLabel, .dataPointLabelBackground, .dataPointPopup, .dataPointPopupMask{
   fill: #000000;
   text-anchor:middle;
@@ -1272,11 +1284,13 @@ module SVG
 }
 
 .dataPointPopupMask{
+  pointer-events: none;
   stroke: white;
   stroke-width: 7;
 }
 
 .dataPointPopup{
+  pointer-events: none;
   fill: black;
   stroke-width: 2;
 }
