@@ -254,9 +254,7 @@ module SVG
                 if !data[:shape][i].nil?
                   shape_selection_string = data[:shape][i].to_s
                 end
-                DataPoint.new(c[:x], c[:y], line).shape(shape_selection_string).each{|s|
-                  @graph.add_element( *s )
-                }
+                draw_point_shape(c[:x], c[:y], line, shape_selection_string)
               end
 
               make_datapoint_text( c[:x], c[:y] - font_size/2, cum_sum[i] + minvalue)

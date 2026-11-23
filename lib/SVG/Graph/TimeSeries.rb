@@ -150,6 +150,7 @@ module SVG
       # a format that is parseable by ParseDate, a Time object, or a number of seconds
       # after the unix epoch.
       def add_data data
+        data = normalize_point_rows(data)
         data[:data].each_index do |i|
           data[:data][i] = parse_time(data[:data][i], data[:template]).to_i if i % 2 == 0  # only even indices are time, odd indices are values
         end

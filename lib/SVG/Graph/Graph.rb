@@ -57,6 +57,13 @@ module SVG
     # This software is available under the Ruby license[LICENSE.txt]
     #
     class Graph
+      POINT_SYMBOLS = {
+        'circle' => ['circle', { 'cx' => 0, 'cy' => 0, 'r' => 2.5 }],
+        'square' => ['rect', { 'x' => -2.5, 'y' => -2.5, 'width' => 5, 'height' => 5 }],
+        'triangle' => ['polygon', { 'points' => '0,-3 -3,3 3,3' }],
+        'diamond' => ['polygon', { 'points' => '0,-3 3,0 0,3 -3,0' }],
+        'cross' => ['path', { 'd' => 'M-3 -3 L3 3 M3 -3 L-3 3', 'fill' => 'none' }]
+      }
       include REXML
 
       # Initialize the graph object with the graph settings.  You won't
@@ -402,6 +409,10 @@ module SVG
       attr_accessor :show_graph_subtitle
       #   What the subtitle on the graph should be.
       attr_accessor :graph_subtitle
+      # Optional text alternatives for assistive technology.
+      attr_accessor :accessible_title, :accessible_description
+      # Named SVG elements, defined once and reused for data points.
+      attr_accessor :point_symbols
       #   Whether to show a key (legend), defaults to true, set to
       #   false if you want to hide it.
       attr_accessor :key
@@ -619,6 +630,19 @@ module SVG
           @foreground.add_element(href)
         end # if add_popups
       end # def add_popup
+
+      def draw_point_shape(x, y, line, selection)
+        symbol_id = @point_symbol_ids && @point_symbol_ids[selection]
+        if symbol_id
+          @graph.add_element('use', {
+            'xlink:href' => "##{symbol_id}",
+            'transform' => "translate(#{x} #{y})",
+            'class' => "dataPoint#{line}"
+          })
+        else
+          DataPoint.new(x, y, line).shape(selection).each { |shape| @graph.add_element(*shape) }
+        end
+      end
 
       # returns the longest label from an array of labels as string
       # each object in the array must support .to_s
@@ -1126,6 +1150,9 @@ module SVG
       # svg is added.
       #
       def start_svg
+        if (accessible_title || accessible_description) && accessible_title.to_s.empty?
+          raise ArgumentError, ':accessible_title must be non-empty when provided or used with :accessible_description'
+        end
         # Base document
         @doc = Document.new
         @doc << XMLDecl.new
@@ -1145,6 +1172,11 @@ module SVG
           "xmlns:a3" => "http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/",
           "a3:scriptImplementation" => "Adobe"
         })
+        if accessible_title || accessible_description
+          @root.attributes['role'] = 'img'
+          @root.add_element('title').text = accessible_title.to_s if accessible_title
+          @root.add_element('desc').text = accessible_description.to_s if accessible_description
+        end
         @root << Comment.new( " "+"\\"*66 )
         @root << Comment.new( " Created with SVG::Graph " )
         @root << Comment.new( " SVG::Graph by Sean E. Russell " )
@@ -1154,6 +1186,26 @@ module SVG
 
         defs = @root.add_element( "defs" )
         add_defs defs
+        @point_symbol_ids = {}
+        if point_symbols
+          raise ArgumentError, ':point_symbols must be a hash' unless point_symbols.is_a?(Hash)
+          point_symbols.each_with_index do |(name, shape), index|
+            if shape.is_a?(Symbol)
+              shape = POINT_SYMBOLS.fetch(shape.to_s) do
+                raise ArgumentError, "Unknown point symbol: #{shape}"
+              end
+            end
+            unless (name.is_a?(String) || name.is_a?(Symbol)) && shape.is_a?(Array) &&
+                   shape.length == 2 && shape[0].is_a?(String) && shape[1].is_a?(Hash)
+              raise ArgumentError, 'Each point symbol must have a name and a [tag, attributes] definition'
+            end
+            name = name.to_s
+            raise ArgumentError, "Duplicate point symbol: #{name}" if @point_symbol_ids.key?(name)
+            id = "svg-graph-#{object_id}-#{@doc.object_id}-point-#{index}"
+            defs.add_element('g', { 'id' => id }).add_element(shape[0], shape[1])
+            @point_symbol_ids[name] = id
+          end
+        end
         if !no_css
           if inline_style_sheet && inline_style_sheet != ''
             style = defs.add_element( "style", {"type"=>"text/css"} )

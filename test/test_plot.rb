@@ -13,6 +13,64 @@ class TestSvgGraphPlot < Test::Unit::TestCase
     DataPoint.reset_shape_criteria
   end
 
+  def test_point_rows_keep_metadata_aligned_and_do_not_mutate_input
+    points = [[3, 30, 'third', 'square', '/three'], [1, 10, 'first', nil, '/one']]
+    graph = SVG::Graph::Plot.new(:add_popups => true)
+    graph.add_data(:points => points, :title => 'Series')
+
+    data = graph.instance_variable_get(:@data).first
+    assert_equal([[1, 3], [10, 30]], data[:data])
+    assert_equal(['first', 'third'], data[:description])
+    assert_equal([nil, 'square'], data[:shape])
+    assert_equal(['/one', '/three'], data[:url])
+    assert_equal(3, points[0][0])
+    assert_match(/first/, graph.burn)
+  end
+
+  def test_timeseries_accepts_point_rows_without_changing_subclass_data_layout
+    graph = SVG::Graph::TimeSeries.new({})
+    points = [['2020-01-02', 2, 'later'], ['2020-01-01', 1, 'earlier']]
+    graph.add_data(:points => points, :title => 'Series')
+    data = graph.instance_variable_get(:@data).first
+    assert_equal([1, 2], data[:data][1])
+    assert_equal(['earlier', 'later'], data[:description])
+    assert_equal('2020-01-02', points[0][0])
+    assert_match(/<svg/, graph.burn)
+  end
+
+  def test_point_rows_reject_ambiguous_or_incomplete_input
+    graph = SVG::Graph::Plot.new({})
+    assert_raise(ArgumentError) { graph.add_data(:points => [[1, 2]], :data => [1, 2]) }
+    assert_raise(ArgumentError) { graph.add_data(:points => [[1, nil]]) }
+    assert_raise(ArgumentError) { graph.add_data(:points => [[1, 2]], :shape => ['square']) }
+  end
+
+  def test_named_symbols_are_reused_and_other_shapes_keep_legacy_behavior
+    DataPoint.configure_shape_criteria([/custom/, lambda { |x, y, line|
+      ['circle', { 'cx' => x, 'cy' => y, 'r' => 7, 'class' => "dataPoint#{line}" }]
+    }])
+    graph = SVG::Graph::Plot.new(:point_symbols => {
+      :square => :square,
+      :star => ['path', { 'd' => 'M0 -3 L3 3 L-3 3 Z' }]
+    })
+    graph.add_data(:title => 'Series', :points => [[1, 1, nil, 'square'], [2, 2, nil, 'square'],
+                                                   [3, 3, nil, 'star'], [4, 4, nil, 'custom']])
+    svg = REXML::Document.new(graph.burn_svg_only)
+    uses = REXML::XPath.match(svg, "//*[local-name()='use']")
+    assert_equal(3, uses.length)
+    assert_equal(uses[0].attributes['xlink:href'], uses[1].attributes['xlink:href'])
+    assert_not_equal(uses[0].attributes['xlink:href'], uses[2].attributes['xlink:href'])
+    assert_equal(2, REXML::XPath.match(svg, "//*[local-name()='defs']/*[local-name()='g']").length)
+    assert_equal(1, REXML::XPath.match(svg, "//*[local-name()='circle' and @r='7']").length)
+  end
+
+  def test_line_charts_can_reuse_symbols
+    graph = SVG::Graph::Line.new(:fields => ['a', 'b'], :point_symbols => { :diamond => :diamond })
+    graph.add_data(:title => 'Series', :data => [1, 2], :shape => ['diamond', 'diamond'])
+    svg = REXML::Document.new(graph.burn_svg_only)
+    assert_equal(2, REXML::XPath.match(svg, "//*[local-name()='use']").length)
+  end
+
   def test_plot
 
       projection = [

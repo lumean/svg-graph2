@@ -173,6 +173,7 @@ module SVG
       #          :shape [Array<String>] (optional) if given, DataPoint shape is chosen based on this string instead of description
       #          :url [Array<String>] (optional)  if given, link will be added to each datapoint
       def add_data(conf)
+        conf = normalize_point_rows(conf)
         @data ||= []
         raise "No data provided by #{conf.inspect}" unless conf[:data].is_a?(Array)
         # support array of arrays and flatten it
@@ -208,6 +209,28 @@ module SVG
       end
 
       protected
+
+      def normalize_point_rows(conf)
+        return conf unless conf.key?(:points)
+
+        raise ArgumentError, 'Use either :points or :data, not both' if conf.key?(:data)
+        unless conf[:points].is_a?(Array) && conf[:points].all? { |row|
+          row.is_a?(Array) && (2..5).include?(row.length) && !row[0].nil? && !row[1].nil?
+        }
+          raise ArgumentError, ':points must contain [x, y, description, shape, url] rows with non-nil x and y'
+        end
+        if [:description, :shape, :url].any? { |key| conf.key?(key) }
+          raise ArgumentError, 'Put point metadata in the rows when using :points'
+        end
+
+        normalized = conf.dup
+        normalized.delete(:points)
+        normalized[:data] = conf[:points].flat_map { |row| row[0, 2] }
+        [:description, :shape, :url].each_with_index do |key, index|
+          normalized[key] = conf[:points].map { |row| row[index + 2] }
+        end
+        normalized
+      end
 
       def keys
         @data.collect{ |x| x[:title] }
@@ -422,9 +445,7 @@ module SVG
                 if !data[:shape][idx].nil?
                   shape_selection_string = data[:shape][idx].to_s
                 end
-                DataPoint.new(c[:x], c[:y], line).shape(shape_selection_string).each{|s|
-                  @graph.add_element( *s )
-                }
+                draw_point_shape(c[:x], c[:y], line, shape_selection_string)
               end
               make_datapoint_text( c[:x], c[:y]-6, y_points[idx] )
               add_popup(c[:x], c[:y], format( x_points[idx], y_points[idx], data[:description][idx].to_s), "", data[:url][idx].to_s)
