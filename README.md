@@ -99,6 +99,8 @@ ceiling of the square root of the total sample count. Histogram inherits bar
 styling and the overlap and side-by-side options. Each series must contain
 finite numeric values.
 
+![example histogram graph](./images/histogram.svg)
+
 ### ErrBar
 
 ![example err_bar graph](https://cdn.rawgit.com/lumean/svg-graph2/master/examples/err_bar.svg)
@@ -178,6 +180,15 @@ calling the protected `draw_point_shape` helper.
 Source: [C3js.rb](../master/examples/c3js.rb)
 
 [Link to Preview](https://cdn.rawgit.com/lumean/svg-graph2/master/examples/c3js.html)
+
+### Example images
+
+The static charts in `images/` are generated from the corresponding SVGs in
+`examples/`, with SVG, PNG and compressed SVG (`.svgz`) versions. For
+compatibility, `bar_horizontal` is named `barhorizontal` and `err_bar` is
+named `err-plot` in `images/`. PNGs are static snapshots of the SVGs.
+The C3js example generates its charts in the browser and has no static image
+set.
 
 ### Accessibility
 

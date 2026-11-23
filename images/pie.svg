@@ -1,70 +1,283 @@
-<?xml version='1.0'?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
-<svg xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 640 480' height='480' width='640' xmlns='http://www.w3.org/2000/svg'>
-    <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-  -->
-    <!-- Created with SVG::Graph 
-  -->
-    <!-- Sean Russell 
-  -->
-    <!-- Based on SVG::TT::Graph for Perl by Leo Lapworth & Stephan Morgan 
-  -->
-    <!-- //////////////////////////////////////////////////////////////////
-  -->
-  <defs>
-    <filter id='dropshadow' height='1.2' width='1.2'>
-      <feGaussianBlur result='blur' stdDeviation='4'/>
-    </filter>
-  </defs>
-    <!--SVG Background
-  -->
-  <rect x='0' class='svgBackground' y='0' height='480' style='fill:#ffffff;' width='640'/>
-  <text x='320' class='mainTitle' y='16' style='text-anchor: middle; fill: #000000; font-size: 16px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;'>Question 7
-</text>
-  <g transform='translate(543.0 46)'>
-    <rect x='0' class='key1' y='0' height='12' style='fill: #ff0000; fill-opacity: 0.7; stroke: none; stroke-width: 1px;' width='12'/>
-    <text x='17' class='keyText' y='12' style='fill: #000000; text-anchor:start; font-size: 10px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;'>Internet [3]</text>
-    <rect x='0' class='key2' y='17' height='12' style='fill: #0000ff; fill-opacity: 0.7; stroke: none; stroke-width: 1px;' width='12'/>
-    <text x='17' class='keyText' y='29' style='fill: #000000; text-anchor:start; font-size: 10px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;'>TV [3]</text>
-    <rect x='0' class='key3' y='34' height='12' style='fill-opacity: 0.7; fill: #00ff00; stroke: none; stroke-width: 1px;' width='12'/>
-    <text x='17' class='keyText' y='46' style='fill: #000000; text-anchor:start; font-size: 10px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;'>Newspaper [0]</text>
-    <rect x='0' class='key4' y='51' height='12' style='fill-opacity: 0.7; fill: #ffcc00; stroke: none; stroke-width: 1px;' width='12'/>
-    <text x='17' class='keyText' y='63' style='fill: #000000; text-anchor:start; font-size: 10px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;'>Magazine [6]</text>
-    <rect x='0' class='key5' y='68' height='12' style='fill-opacity: 0.7; fill: #00ccff; stroke: none; stroke-width: 1px;' width='12'/>
-    <text x='17' class='keyText' y='80' style='fill: #000000; text-anchor:start; font-size: 10px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;'>Radio
- [1]</text>
-  </g>
-  <g transform='translate( 112 48 )'>
-    <g>
-      <path transform='translate( 10 10 )' d='M207.5,207.5 L207.5,0.0 A207.5,207.5 0, 0,1, 413.487091375346 182.48863884702 Z' filter='url(#dropshadow)' style='fill: #ccc; stroke: none;'/>
-      <path transform='translate( 10 10 )' d='M207.5,207.5 L413.487091375346,182.48863884702 A207.5,207.5 0, 0,1, 257.158000339668 408.970427115906 Z' filter='url(#dropshadow)' style='fill: #ccc; stroke: none;'/>
-      <path transform='translate( 10 10 )' d='M207.5,207.5 L257.158000339668,408.970427115906 A207.5,207.5 0, 0,1, 257.158000339668 408.970427115906 Z' filter='url(#dropshadow)' style='fill: #ccc; stroke: none;'/>
-      <path transform='translate( 0.649837573145852 13.5460488704254 )' d='M207.5,207.5 L257.158000339668,408.970427115906 A207.5,207.5 0, 0,1, 111.069941800918 23.7678746769589 Z' filter='url(#dropshadow)' style='fill: #ccc; stroke: none;'/>
-      <path transform='translate( 10 10 )' d='M207.5,207.5 L111.069941800918,23.7678746769589 A207.5,207.5 0, 0,1, 207.5 0.0 Z' filter='url(#dropshadow)' style='fill: #ccc; stroke: none;'/>
-    </g>
-    <g>
-      <path d='M207.5,207.5 L207.5,0.0 A207.5,207.5 0, 0,1, 413.487091375346 182.48863884702 Z' style='fill: #fff; stroke: none;'/>
-      <path d='M207.5,207.5 L413.487091375346,182.48863884702 A207.5,207.5 0, 0,1, 257.158000339668 408.970427115906 Z' style='fill: #fff; stroke: none;'/>
-      <path d='M207.5,207.5 L257.158000339668,408.970427115906 A207.5,207.5 0, 0,1, 257.158000339668 408.970427115906 Z' style='fill: #fff; stroke: none;'/>
-      <path transform='translate( -9.35016242685415 3.54604887042536 )' d='M207.5,207.5 L257.158000339668,408.970427115906 A207.5,207.5 0, 0,1, 111.069941800918 23.7678746769589 Z' style='fill: #fff; stroke: none;'/>
-      <path d='M207.5,207.5 L111.069941800918,23.7678746769589 A207.5,207.5 0, 0,1, 207.5 0.0 Z' style='fill: #fff; stroke: none;'/>
-    </g>
-    <g>
-      <path class='fill1' d='M207.5,207.5 L207.5,0.0 A207.5,207.5 0, 0,1, 413.487091375346 182.48863884702 Z' style='fill: #ff0000; fill-opacity: 0.7; stroke: none; stroke-width: 1px;'/>
-      <text x='345.097951584965' class='dataPointLabel' y='52.1840197544965' style='fill: #000000; text-anchor:middle; font-size: 10px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;; fill: #000000; text-anchor:middle; font-size: 12px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;stroke: #fff; stroke-width: 2;'>Internet 23%</text>
-      <text x='345.097951584965' class='dataPointLabel' y='52.1840197544965' style='fill: #000000; text-anchor:middle; font-size: 10px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;; fill: #000000; text-anchor:middle; font-size: 12px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;'>Internet 23%</text>
-      <path class='fill2' d='M207.5,207.5 L413.487091375346,182.48863884702 A207.5,207.5 0, 0,1, 257.158000339668 408.970427115906 Z' style='fill: #0000ff; fill-opacity: 0.7; stroke: none; stroke-width: 1px;'/>
-      <text x='378.269152172934' class='dataPointLabel' y='325.373434946715' style='fill: #000000; text-anchor:middle; font-size: 10px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;; fill: #000000; text-anchor:middle; font-size: 12px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;stroke: #fff; stroke-width: 2;'>TV 23%</text>
-      <text x='378.269152172934' class='dataPointLabel' y='325.373434946715' style='fill: #000000; text-anchor:middle; font-size: 10px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;; fill: #000000; text-anchor:middle; font-size: 12px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;'>TV 23%</text>
-      <path class='fill3' d='M207.5,207.5 L257.158000339668,408.970427115906 A207.5,207.5 0, 0,1, 257.158000339668 408.970427115906 Z' style='fill-opacity: 0.7; fill: #00ff00; stroke: none; stroke-width: 1px;'/>
-      <path transform='translate( -9.35016242685415 3.54604887042536 )' class='fill4' d='M207.5,207.5 L257.158000339668,408.970427115906 A207.5,207.5 0, 0,1, 111.069941800918 23.7678746769589 Z' style='fill-opacity: 0.7; fill: #ffcc00; stroke: none; stroke-width: 1px;'/>
-      <text x='4.1339672159223' class='dataPointLabel' y='284.626562931752' style='fill: #000000; text-anchor:middle; font-size: 10px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;; fill: #000000; text-anchor:middle; font-size: 12px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;stroke: #fff; stroke-width: 2;'>Magazine 46%</text>
-      <text x='4.1339672159223' class='dataPointLabel' y='284.626562931752' style='fill: #000000; text-anchor:middle; font-size: 10px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;; fill: #000000; text-anchor:middle; font-size: 12px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;'>Magazine 46%</text>
-      <path class='fill5' d='M207.5,207.5 L111.069941800918,23.7678746769589 A207.5,207.5 0, 0,1, 207.5 0.0 Z' style='fill-opacity: 0.7; fill: #00ccff; stroke: none; stroke-width: 1px;'/>
-      <text x='157.841999660332' class='dataPointLabel' y='6.02957288409419' style='fill: #000000; text-anchor:middle; font-size: 10px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;; fill: #000000; text-anchor:middle; font-size: 12px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;stroke: #fff; stroke-width: 2;'>Radio
- 8%</text>
-      <text x='157.841999660332' class='dataPointLabel' y='6.02957288409419' style='fill: #000000; text-anchor:middle; font-size: 10px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;; fill: #000000; text-anchor:middle; font-size: 12px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;'>Radio
- 8%</text>
-    </g>
-  </g>
+<svg width='640' height='300' viewBox='0 0 640 300' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:a3='http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/' a3:scriptImplementation='Adobe'>
+<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
+<!-- Created with SVG::Graph -->
+<!-- SVG::Graph by Sean E. Russell -->
+<!-- Losely based on SVG::TT::Graph for Perl by Leo Lapworth & Stephan Morgan -->
+<!-- //////////////////////////////////////////////////////////////////-->
+<defs>
+<filter id='dropshadow' width='1.2' height='1.2'>
+<feGaussianBlur stdDeviation='4' result='blur'/>
+</filter>
+<style type='text/css'>
+<![CDATA[/* Copy from here for external style sheet */
+.svgBackground{
+  fill:#ffffff;
+}
+.graphBackground{
+  fill:#f0f0f0;
+}
+
+/* graphs titles */
+.mainTitle{
+  text-anchor: middle;
+  fill: #000000;
+  font-size: 16px;
+  font-family: "Arial", sans-serif;
+  font-weight: normal;
+}
+.subTitle{
+  text-anchor: middle;
+  fill: #999999;
+  font-size: 14px;
+  font-family: "Arial", sans-serif;
+  font-weight: normal;
+}
+
+.axis{
+  stroke: #000000;
+  stroke-width: 1px;
+}
+
+.guideLines{
+  stroke: #666666;
+  stroke-width: 1px;
+  stroke-dasharray: 5 5;
+}
+
+.xAxisLabels{
+  text-anchor: middle;
+  fill: #000000;
+  font-size: 12px;
+  font-family: "Arial", sans-serif;
+  font-weight: normal;
+}
+
+.yAxisLabels{
+  text-anchor: end;
+  fill: #000000;
+  font-size: 12px;
+  font-family: "Arial", sans-serif;
+  font-weight: normal;
+}
+
+.xAxisTitle{
+  text-anchor: middle;
+  fill: #ff0000;
+  font-size: 14px;
+  font-family: "Arial", sans-serif;
+  font-weight: normal;
+}
+
+.yAxisTitle{
+  fill: #ff0000;
+  text-anchor: middle;
+  font-size: 14px;
+  font-family: "Arial", sans-serif;
+  font-weight: normal;
+}
+
+.dataPointLabel, .dataPointLabelBackground, .dataPointPopup, .dataPointPopupMask{
+  fill: #000000;
+  text-anchor:middle;
+  font-size: 10px;
+  font-family: "Arial", sans-serif;
+  font-weight: normal;
+}
+
+.dataPointLabelBackground{
+  stroke: #ffffff;
+  stroke-width: 2;
+}
+
+.dataPointPopupMask{
+  stroke: white;
+  stroke-width: 7;
+}
+
+.dataPointPopup{
+  fill: black;
+  stroke-width: 2;
+}
+
+.staggerGuideLine{
+  fill: none;
+  stroke: #000000;
+  stroke-width: 0.5px;
+}
+
+.dataPointLabel, .dataPointLabelBackground, .dataPointPopup{
+	fill: #000000;
+	text-anchor:middle;
+	font-size: 12px;
+	font-family: "Arial", sans-serif;
+	font-weight: normal;
+}
+
+.dataPointLabelBackground{
+  stroke: #ffffff;
+  stroke-width: 2;
+}
+
+.dataPointPopup{
+  fill: #000000;
+  visibility: hidden;
+  stroke-width: 2;
+}
+
+/* key - MUST match fill styles */
+.key1,.fill1{
+	fill: #ff0000;
+	fill-opacity: 0.7;
+	stroke: none;
+	stroke-width: 1px;
+}
+.key2,.fill2{
+	fill: #0000ff;
+	fill-opacity: 0.7;
+	stroke: none;
+	stroke-width: 1px;
+}
+.key3,.fill3{
+	fill-opacity: 0.7;
+	fill: #00ff00;
+	stroke: none;
+	stroke-width: 1px;
+}
+.key4,.fill4{
+	fill-opacity: 0.7;
+	fill: #ffcc00;
+	stroke: none;
+	stroke-width: 1px;
+}
+.key5,.fill5{
+	fill-opacity: 0.7;
+	fill: #00ccff;
+	stroke: none;
+	stroke-width: 1px;
+}
+.key6,.fill6{
+	fill-opacity: 0.7;
+	fill: #ff00ff;
+	stroke: none;
+	stroke-width: 1px;
+}
+.key7,.fill7{
+	fill-opacity: 0.7;
+	fill: #00ff99;
+	stroke: none;
+	stroke-width: 1px;
+}
+.key8,.fill8{
+	fill-opacity: 0.7;
+	fill: #ffff00;
+	stroke: none;
+	stroke-width: 1px;
+}
+.key9,.fill9{
+	fill-opacity: 0.7;
+	fill: #cc6666;
+	stroke: none;
+	stroke-width: 1px;
+}
+.key10,.fill10{
+	fill-opacity: 0.7;
+	fill: #663399;
+	stroke: none;
+	stroke-width: 1px;
+}
+.key11,.fill11{
+	fill-opacity: 0.7;
+	fill: #339900;
+	stroke: none;
+	stroke-width: 1px;
+}
+.key12,.fill12{
+	fill-opacity: 0.7;
+	fill: #9966FF;
+	stroke: none;
+	stroke-width: 1px;
+}
+
+
+.keyText{
+  fill: #000000;
+  text-anchor:start;
+  font-size: 10px;
+  font-family: "Arial", sans-serif;
+  font-weight: normal;
+}
+/* End copy for external style sheet */
+]]>
+</style>
+</defs>
+<!-- include default stylesheet if none specified -->
+<!--SVG Background-->
+<rect width='640' height='300' x='0' y='0' class='svgBackground'/>
+<text x='320' y='16' class='mainTitle'>Pie</text>
+<g transform='translate(561.0 36)'>
+<rect x='0' y='0' width='12' height='12' class='key1'/>
+<text x='17' y='12' class='keyText'>jan [7]</text>
+<rect x='0' y='17' width='12' height='12' class='key2'/>
+<text x='17' y='29' class='keyText'>feb [29.2]</text>
+<rect x='0' y='34' width='12' height='12' class='key3'/>
+<text x='17' y='46' class='keyText'>mar [5.2]</text>
+<rect x='0' y='51' width='12' height='12' class='key4'/>
+<text x='17' y='63' class='keyText'>apr [12.4]</text>
+<rect x='0' y='68' width='12' height='12' class='key5'/>
+<text x='17' y='80' class='keyText'>may [26.5]</text>
+<rect x='0' y='85' width='12' height='12' class='key6'/>
+<text x='17' y='97' class='keyText'>jun [20.6]</text>
+<rect x='0' y='102' width='12' height='12' class='key7'/>
+<text x='17' y='114' class='keyText'>jul [22]</text>
+<rect x='0' y='119' width='12' height='12' class='key8'/>
+<text x='17' y='131' class='keyText'>aug [3.2]</text>
+</g>
+<g transform='translate( 154.5 48 )'>
+<g>
+<path d='M117.5,117.5 L117.5,0.0 A117.5,117.5 0, 0,1, 157.65680089544463 7.074996754160708 Z' filter='url(#dropshadow)' style='fill: #ccc; stroke: none;' transform='translate( 10 10 )'/>
+<path d='M117.5,117.5 L157.65680089544463,7.074996754160708 A117.5,117.5 0, 0,1, 231.82651841538657 144.6237384410091 Z' filter='url(#dropshadow)' style='fill: #ccc; stroke: none;' transform='translate( 18.80190442837165 5.253793258420833 )'/>
+<path d='M117.5,117.5 L231.82651841538657,144.6237384410091 A117.5,117.5 0, 0,1, 221.06099337132815 173.0100950453494 Z' filter='url(#dropshadow)' style='fill: #ccc; stroke: none;' transform='translate( 10 10 )'/>
+<path d='M117.5,117.5 L221.06099337132815,173.0100950453494 A117.5,117.5 0, 0,1, 169.75861735837873 222.73918904947226 Z' filter='url(#dropshadow)' style='fill: #ccc; stroke: none;' transform='translate( 10 10 )'/>
+<path d='M117.5,117.5 L169.75861735837873,222.73918904947226 A117.5,117.5 0, 0,1, 28.490626212069316 194.20450689418738 Z' filter='url(#dropshadow)' style='fill: #ccc; stroke: none;' transform='translate( 10 10 )'/>
+<path d='M117.5,117.5 L28.490626212069316,194.20450689418738 A117.5,117.5 0, 0,1, 5.787098687400473 81.07915870931319 Z' filter='url(#dropshadow)' style='fill: #ccc; stroke: none;' transform='translate( 10 10 )'/>
+<path d='M117.5,117.5 L5.787098687400473,81.07915870931319 A117.5,117.5 0, 0,1, 98.8443289609459 1.4904489359492459 Z' filter='url(#dropshadow)' style='fill: #ccc; stroke: none;' transform='translate( 10 10 )'/>
+<path d='M117.5,117.5 L98.8443289609459,1.4904489359492459 A117.5,117.5 0, 0,1, 117.50000000000007 0.0 Z' filter='url(#dropshadow)' style='fill: #ccc; stroke: none;' transform='translate( 10 10 )'/>
+</g>
+<g>
+<path d='M117.5,117.5 L117.5,0.0 A117.5,117.5 0, 0,1, 157.65680089544463 7.074996754160708 Z' style='fill: #fff; stroke: none;'/>
+<path d='M117.5,117.5 L157.65680089544463,7.074996754160708 A117.5,117.5 0, 0,1, 231.82651841538657 144.6237384410091 Z' style='fill: #fff; stroke: none;' transform='translate( 8.801904428371651 -4.746206741579167 )'/>
+<path d='M117.5,117.5 L231.82651841538657,144.6237384410091 A117.5,117.5 0, 0,1, 221.06099337132815 173.0100950453494 Z' style='fill: #fff; stroke: none;'/>
+<path d='M117.5,117.5 L221.06099337132815,173.0100950453494 A117.5,117.5 0, 0,1, 169.75861735837873 222.73918904947226 Z' style='fill: #fff; stroke: none;'/>
+<path d='M117.5,117.5 L169.75861735837873,222.73918904947226 A117.5,117.5 0, 0,1, 28.490626212069316 194.20450689418738 Z' style='fill: #fff; stroke: none;'/>
+<path d='M117.5,117.5 L28.490626212069316,194.20450689418738 A117.5,117.5 0, 0,1, 5.787098687400473 81.07915870931319 Z' style='fill: #fff; stroke: none;'/>
+<path d='M117.5,117.5 L5.787098687400473,81.07915870931319 A117.5,117.5 0, 0,1, 98.8443289609459 1.4904489359492459 Z' style='fill: #fff; stroke: none;'/>
+<path d='M117.5,117.5 L98.8443289609459,1.4904489359492459 A117.5,117.5 0, 0,1, 117.50000000000007 0.0 Z' style='fill: #fff; stroke: none;'/>
+</g>
+<g>
+<path d='M117.5,117.5 L117.5,0.0 A117.5,117.5 0, 0,1, 157.65680089544463 7.074996754160708 Z' class='fill1'/>
+<text x='137.8876447709622' y='1.7822660924737193' class='dataPointLabel' style='stroke: #fff; stroke-width: 2;'>jan [7.0] 6%</text>
+<text x='137.8876447709622' y='1.7822660924737193' class='dataPointLabel'>jan [7.0] 6%</text>
+<path d='M117.5,117.5 L157.65680089544463,7.074996754160708 A117.5,117.5 0, 0,1, 231.82651841538657 144.6237384410091 Z' class='fill2' transform='translate( 8.801904428371651 -4.746206741579167 )'/>
+<text x='229.72428146173854' y='56.98586404486563' class='dataPointLabel' style='stroke: #fff; stroke-width: 2;'>feb [29.2] 23%</text>
+<text x='229.72428146173854' y='56.98586404486563' class='dataPointLabel'>feb [29.2] 23%</text>
+<path d='M117.5,117.5 L231.82651841538657,144.6237384410091 A117.5,117.5 0, 0,1, 221.06099337132815 173.0100950453494 Z' class='fill3'/>
+<text x='227.36440851553624' y='159.16607422749792' class='dataPointLabel' style='stroke: #fff; stroke-width: 2;'>mar [5.2] 4%</text>
+<text x='227.36440851553624' y='159.16607422749792' class='dataPointLabel'>mar [5.2] 4%</text>
+<path d='M117.5,117.5 L221.06099337132815,173.0100950453494 A117.5,117.5 0, 0,1, 169.75861735837873 222.73918904947226 Z' class='fill4'/>
+<text x='199.2813149173274' y='201.8686347548242' class='dataPointLabel' style='stroke: #fff; stroke-width: 2;'>apr [12.4] 10%</text>
+<text x='199.2813149173274' y='201.8686347548242' class='dataPointLabel'>apr [12.4] 10%</text>
+<path d='M117.5,117.5 L169.75861735837873,222.73918904947226 A117.5,117.5 0, 0,1, 28.490626212069316 194.20450689418738 Z' class='fill5'/>
+<text x='94.23604620960049' y='232.67394867780718' class='dataPointLabel' style='stroke: #fff; stroke-width: 2;'>may [26.5] 21%</text>
+<text x='94.23604620960049' y='232.67394867780718' class='dataPointLabel'>may [26.5] 21%</text>
+<path d='M117.5,117.5 L28.490626212069316,194.20450689418738 A117.5,117.5 0, 0,1, 5.787098687400473 81.07915870931319 Z' class='fill6'/>
+<text x='2.297161359320299' y='140.62046645570788' class='dataPointLabel' style='stroke: #fff; stroke-width: 2;'>jun [20.6] 16%</text>
+<text x='2.297161359320299' y='140.62046645570788' class='dataPointLabel'>jun [20.6] 16%</text>
+<path d='M117.5,117.5 L5.787098687400473,81.07915870931319 A117.5,117.5 0, 0,1, 98.8443289609459 1.4904489359492459 Z' class='fill7'/>
+<text x='41.12865822116727' y='28.20460171486596' class='dataPointLabel' style='stroke: #fff; stroke-width: 2;'>jul [22.0] 17%</text>
+<text x='41.12865822116727' y='28.20460171486596' class='dataPointLabel'>jul [22.0] 17%</text>
+<path d='M117.5,117.5 L98.8443289609459,1.4904489359492459 A117.5,117.5 0, 0,1, 117.50000000000007 0.0 Z' class='fill8'/>
+<text x='108.1424428942689' y='0.3732049229853516' class='dataPointLabel' style='stroke: #fff; stroke-width: 2;'>aug [3.2] 3%</text>
+<text x='108.1424428942689' y='0.3732049229853516' class='dataPointLabel'>aug [3.2] 3%</text>
+</g>
+</g>
 </svg>

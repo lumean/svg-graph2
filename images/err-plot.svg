@@ -1,6 +1,4 @@
-<?xml version='1.0'?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
-<svg xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 600 500' xmlns='http://www.w3.org/2000/svg' xmlns:a3='http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/' width='600' height='500' a3:scriptImplementation='Adobe'>
+<svg width='600' height='500' viewBox='0 0 600 500' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:a3='http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/' a3:scriptImplementation='Adobe'>
 <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
 <!-- Created with SVG::Graph -->
 <!-- SVG::Graph by Sean E. Russell -->
@@ -75,7 +73,7 @@
   font-weight: normal;
 }
 
-.dataPointLabel{
+.dataPointLabel, .dataPointLabelBackground, .dataPointPopup, .dataPointPopupMask{
   fill: #000000;
   text-anchor:middle;
   font-size: 10px;
@@ -83,10 +81,25 @@
   font-weight: normal;
 }
 
+.dataPointLabelBackground{
+  stroke: #ffffff;
+  stroke-width: 2;
+}
+
+.dataPointPopupMask{
+  stroke: white;
+  stroke-width: 7;
+}
+
+.dataPointPopup{
+  fill: black;
+  stroke-width: 2;
+}
+
 .staggerGuideLine{
   fill: none;
   stroke: #000000;
-  stroke-width: 0.5px;  
+  stroke-width: 0.5px;
 }
 
 /* default fill styles for multiple datasets (probably only use a single dataset on this graph though) */
@@ -94,73 +107,73 @@
 	fill: #ff0000;
 	fill-opacity: 0.5;
 	stroke: none;
-	stroke-width: 0.5px;	
+	stroke-width: 0.5px;
 }
 .key2,.fill2{
 	fill: #0000ff;
 	fill-opacity: 0.5;
 	stroke: none;
-	stroke-width: 1px;	
+	stroke-width: 1px;
 }
 .key3,.fill3{
 	fill: #00ff00;
 	fill-opacity: 0.5;
 	stroke: none;
-	stroke-width: 1px;	
+	stroke-width: 1px;
 }
 .key4,.fill4{
 	fill: #ffcc00;
 	fill-opacity: 0.5;
 	stroke: none;
-	stroke-width: 1px;	
+	stroke-width: 1px;
 }
 .key5,.fill5{
 	fill: #00ccff;
 	fill-opacity: 0.5;
 	stroke: none;
-	stroke-width: 1px;	
+	stroke-width: 1px;
 }
 .key6,.fill6{
 	fill: #ff00ff;
 	fill-opacity: 0.5;
 	stroke: none;
-	stroke-width: 1px;	
+	stroke-width: 1px;
 }
 .key7,.fill7{
 	fill: #00ffff;
 	fill-opacity: 0.5;
 	stroke: none;
-	stroke-width: 1px;	
+	stroke-width: 1px;
 }
 .key8,.fill8{
 	fill: #ffff00;
 	fill-opacity: 0.5;
 	stroke: none;
-	stroke-width: 1px;	
+	stroke-width: 1px;
 }
 .key9,.fill9{
 	fill: #cc6666;
 	fill-opacity: 0.5;
 	stroke: none;
-	stroke-width: 1px;	
+	stroke-width: 1px;
 }
 .key10,.fill10{
 	fill: #663399;
 	fill-opacity: 0.5;
 	stroke: none;
-	stroke-width: 1px;	
+	stroke-width: 1px;
 }
 .key11,.fill11{
 	fill: #339900;
 	fill-opacity: 0.5;
 	stroke: none;
-	stroke-width: 1px;	
+	stroke-width: 1px;
 }
 .key12,.fill12{
 	fill: #9966FF;
 	fill-opacity: 0.5;
 	stroke: none;
-	stroke-width: 1px;	
+	stroke-width: 1px;
 }
 
 
@@ -177,87 +190,59 @@
 </defs>
 <!-- include default stylesheet if none specified -->
 <!--SVG Background-->
-<rect x='0' y='0' class='svgBackground' width='600' height='500'/>
-<g transform='translate( 35.8 10 )'>
-<rect x='0' y='0' class='graphBackground' width='475.2' height='471'/>
-<path d='M 0 0 v471' class='axis' id='xAxis'/>
-<path d='M 0 471 h475.2' class='axis' id='yAxis'/>
-<text y='486' x='118.8' class='xAxisLabels' style='text-anchor: middle'>
-Jan
-</text>
-<text y='486' x='356.4' class='xAxisLabels' style='text-anchor: middle'>
-Feb
-</text>
-<text x='-3' y='475.0' class='yAxisLabels' style='text-anchor: end'>
-0.00
-</text>
-<text x='-3' y='430.3' class='yAxisLabels' style='text-anchor: end'>
-2.10
-</text>
-<path d='M0 426.3 h475.2' class='guideLines'/>
-<text x='-3' y='385.6' class='yAxisLabels' style='text-anchor: end'>
-4.20
-</text>
-<path d='M0 381.6 h475.2' class='guideLines'/>
-<text x='-3' y='340.9' class='yAxisLabels' style='text-anchor: end'>
-6.30
-</text>
-<path d='M0 336.9 h475.2' class='guideLines'/>
-<text x='-3' y='296.2' class='yAxisLabels' style='text-anchor: end'>
-8.40
-</text>
-<path d='M0 292.2 h475.2' class='guideLines'/>
-<text x='-3' y='251.5' class='yAxisLabels' style='text-anchor: end'>
-10.50
-</text>
-<path d='M0 247.5 h475.2' class='guideLines'/>
-<text x='-3' y='206.8' class='yAxisLabels' style='text-anchor: end'>
-12.60
-</text>
-<path d='M0 202.8 h475.2' class='guideLines'/>
-<text x='-3' y='162.1' class='yAxisLabels' style='text-anchor: end'>
-14.70
-</text>
-<path d='M0 158.1 h475.2' class='guideLines'/>
-<text x='-3' y='117.4' class='yAxisLabels' style='text-anchor: end'>
-16.80
-</text>
-<path d='M0 113.4 h475.2' class='guideLines'/>
-<text x='-3' y='72.7' class='yAxisLabels' style='text-anchor: end'>
-18.90
-</text>
-<path d='M0 68.7 h475.2' class='guideLines'/>
-<text x='-3' y='28.0' class='yAxisLabels' style='text-anchor: end'>
-21.00
-</text>
-<path d='M0 24.0 h475.2' class='guideLines'/>
-<rect x='10.0' y='258.142857142857' class='fill1' width='217.6' height='212.857142857143'/>
-<line x1='118.8' x2='118.8' style='stroke:rgb(0,0,0);stroke-width:1' y1='279.428571428571' y2='236.857142857143'/>
-<line x1='64.4' x2='173.2' style='stroke:rgb(0,0,0);stroke-width:1' y1='279.428571428571' y2='279.428571428571'/>
-<line x1='64.4' x2='173.2' style='stroke:rgb(0,0,0);stroke-width:1' y1='236.857142857143' y2='236.857142857143'/>
-<rect x='247.6' y='45.2857142857143' class='fill1' width='217.6' height='425.714285714286'/>
-<line x1='356.4' x2='356.4' style='stroke:rgb(0,0,0);stroke-width:1' y1='87.8571428571429' y2='2.71428571428577'/>
-<line x1='302.0' x2='410.8' style='stroke:rgb(0,0,0);stroke-width:1' y1='87.8571428571429' y2='87.8571428571429'/>
-<line x1='302.0' x2='410.8' style='stroke:rgb(0,0,0);stroke-width:1' y1='2.71428571428577' y2='2.71428571428577'/>
+<rect width='600' height='500' x='0' y='0' class='svgBackground'/>
+<g transform='translate( 52.0 10 )'>
+<rect x='0' y='0' width='459.0' height='468' class='graphBackground'/>
+<path d='M 0 468 h459.0' class='axis' id='yAxis'/>
+<path d='M 0.0 0 v468' class='axis' id='xAxis'/>
+<text class='xAxisLabels' x='114.75' y='483' style='text-anchor: middle'>Jan</text>
+<text class='xAxisLabels' x='344.25' y='483' style='text-anchor: middle'>Feb</text>
+<text x='3' y='472.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 472.0 ) '>0.00</text>
+<text x='3' y='433.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 433.0 ) '>2.10</text>
+<path d='M0 429.0 h459.0' class='guideLines'/>
+<text x='3' y='394.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 394.0 ) '>4.20</text>
+<path d='M0 390.0 h459.0' class='guideLines'/>
+<text x='3' y='355.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 355.0 ) '>6.30</text>
+<path d='M0 351.0 h459.0' class='guideLines'/>
+<text x='3' y='316.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 316.0 ) '>8.40</text>
+<path d='M0 312.0 h459.0' class='guideLines'/>
+<text x='3' y='277.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 277.0 ) '>10.50</text>
+<path d='M0 273.0 h459.0' class='guideLines'/>
+<text x='3' y='238.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 238.0 ) '>12.60</text>
+<path d='M0 234.0 h459.0' class='guideLines'/>
+<text x='3' y='199.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 199.0 ) '>14.70</text>
+<path d='M0 195.0 h459.0' class='guideLines'/>
+<text x='3' y='160.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 160.0 ) '>16.80</text>
+<path d='M0 156.0 h459.0' class='guideLines'/>
+<text x='3' y='121.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 121.0 ) '>18.90</text>
+<path d='M0 117.0 h459.0' class='guideLines'/>
+<text x='3' y='82.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 82.0 ) '>21.00</text>
+<path d='M0 78.0 h459.0' class='guideLines'/>
+<text x='3' y='43.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 43.0 ) '>23.10</text>
+<path d='M0 39.0 h459.0' class='guideLines'/>
+<rect x='10.0' y='282.2857142857143' width='209.5' height='185.71428571428572' class='fill1'/>
+<line x1='114.75' y1='300.85714285714283' x2='114.75' y2='263.7142857142857' style='stroke:rgb(0,0,0);stroke-width:1'/>
+<line x1='62.375' y1='300.85714285714283' x2='167.125' y2='300.85714285714283' style='stroke:rgb(0,0,0);stroke-width:1'/>
+<line x1='62.375' y1='263.7142857142857' x2='167.125' y2='263.7142857142857' style='stroke:rgb(0,0,0);stroke-width:1'/>
+<rect x='239.5' y='96.57142857142856' width='209.5' height='371.42857142857144' class='fill1'/>
+<line x1='344.25' y1='133.7142857142857' x2='344.25' y2='59.428571428571416' style='stroke:rgb(0,0,0);stroke-width:1'/>
+<line x1='291.875' y1='133.7142857142857' x2='396.625' y2='133.7142857142857' style='stroke:rgb(0,0,0);stroke-width:1'/>
+<line x1='291.875' y1='59.428571428571416' x2='396.625' y2='59.428571428571416' style='stroke:rgb(0,0,0);stroke-width:1'/>
 <g>
-<text x='118.8' y='252.142857142857' class='dataPointLabel' style=' stroke: #fff; stroke-width: 2;'>
-10.00
-</text>
-<text x='118.8' y='252.142857142857' class='dataPointLabel'>
-10.00
-</text>
-<text x='356.4' y='39.2857142857143' class='dataPointLabel' style=' stroke: #fff; stroke-width: 2;'>
-20.00
-</text>
-<text x='356.4' y='39.2857142857143' class='dataPointLabel'>
-20.00
-</text>
+<text x='114.75' y='276.2857142857143' class='dataPointLabelBackground'>10.00</text>
+<text x='114.75' y='276.2857142857143' class='dataPointLabel'>10.00</text>
+<a xlink:href=''>
+<circle cx='114.75' cy='282.2857142857143' r='10' style='opacity: 0'/>
+</a>
+<text x='344.25' y='90.57142857142856' class='dataPointLabelBackground'>20.00</text>
+<text x='344.25' y='90.57142857142856' class='dataPointLabel'>20.00</text>
+<a xlink:href=''>
+<circle cx='344.25' cy='96.57142857142856' r='10' style='opacity: 0'/>
+</a>
 </g>
 </g>
-<g transform='translate(521.0 30)'>
-<rect x='0' y='0' class='key1' width='12' height='12'/>
-<text x='17' y='12' class='keyText'>
-Sales 2002
-</text>
+<g transform='translate(521.0 20)'>
+<rect x='0' y='0' width='12' height='12' class='key1'/>
+<text x='17' y='12' class='keyText'>Sales 2002</text>
 </g>
 </svg>
