@@ -30,6 +30,7 @@ task :test do
     "test/test_plot.rb",
     "test/test_svg_graph.rb",
     "test/test_graph.rb",
+    "test/test_histogram.rb",
     "test/run_examples_and_percy.io.rb"
   ].each do |file|
     # exec all above scripts (with simplecov if env is set)

@@ -71,6 +71,69 @@ class TestSvgGraphPlot < Test::Unit::TestCase
     assert_equal(2, REXML::XPath.match(svg, "//*[local-name()='use']").length)
   end
 
+  def test_strict_bounds_control_ticks_coordinates_and_clip_data
+    graph = SVG::Graph::Plot.new(
+      :key => false, :strict_bounds => true, :min_x_value => 1, :max_x_value => 9,
+      :min_y_value => 1, :max_y_value => 9, :scale_x_divisions => 3,
+      :scale_y_divisions => 3, :show_x_guidelines => true, :add_popups => true
+    )
+    graph.add_data(:data => [0, 0, 1, 1, 9, 9, 10, 10])
+    root = REXML::Document.new(graph.burn_svg_only).root
+    assert_equal([1, 4, 7], graph.send(:get_x_values))
+    assert_equal([1, 4, 7], graph.send(:get_y_values))
+    width = graph.instance_variable_get(:@graph_width)
+    height = graph.instance_variable_get(:@graph_height)
+    assert_in_delta(width, graph.send(:calc_coords, 8, 8)[:x], 0.0001)
+    assert_in_delta(0, graph.send(:calc_coords, 8, 8)[:y], 0.0001)
+    assert_in_delta(height, graph.send(:calc_coords, 0, 0)[:y], 0.0001)
+    clip = REXML::XPath.first(root, "//*[local-name()='clipPath']")
+    rect = clip.elements['rect']
+    assert_in_delta(width, rect.attributes['width'].to_f, 0.0001)
+    assert_in_delta(height, rect.attributes['height'].to_f, 0.0001)
+    clipped = REXML::XPath.match(root, "//*[local-name()='g' and @clip-path]")
+    assert_equal(2, clipped.length)
+    line = REXML::XPath.first(clipped.first, ".//*[local-name()='path' and @class='line1']")
+    assert_not_nil(line)
+    ticks = REXML::XPath.match(root, "//*[local-name()='text' and @class='xAxisLabels']")
+    assert_in_delta(width * 3 / 8.0, ticks[1].attributes['x'].to_f, 0.0001)
+  end
+
+  def test_strict_integer_ticks_do_not_move_fractional_bounds
+    graph = SVG::Graph::Plot.new(:key => false, :strict_bounds => true,
+                                 :min_x_value => 1.5, :max_x_value => 4.5,
+                                 :min_y_value => -1.5, :max_y_value => 1.5,
+                                 :scale_x_integers => true, :scale_y_integers => true)
+    graph.add_data(:data => [1, -2, 5, 2])
+    graph.burn
+    assert_equal(1.5, graph.send(:min_x_range))
+    assert_equal([2, 3, 4], graph.send(:get_x_values))
+    assert_equal([-1, 0, 1], graph.send(:get_y_values))
+  end
+
+  def test_strict_bounds_reject_invalid_range
+    graph = SVG::Graph::Plot.new(:key => false, :strict_bounds => true,
+                                 :min_x_value => 4, :max_x_value => 4)
+    graph.add_data(:data => [1, 2, 5, 3])
+    assert_raise(ArgumentError) { graph.burn }
+
+    graph = SVG::Graph::Plot.new(:key => false, :strict_bounds => true, :scale_x_divisions => 0,
+                                 :scale_x_integers => true)
+    graph.add_data(:data => [1, 2, 5, 3])
+    assert_raise(ArgumentError) { graph.burn }
+  end
+
+  def test_timeseries_strict_bounds_use_dates_and_clip_points
+    graph = SVG::Graph::TimeSeries.new(:key => false, :strict_bounds => true,
+                                       :min_x_value => '2020-01-02', :max_x_value => '2020-01-04',
+                                       :min_y_value => 0, :max_y_value => 10,
+                                       :timescale_divisions => '1 day')
+    graph.add_data(:data => ['2020-01-01', 1, '2020-01-05', 9])
+    root = REXML::Document.new(graph.burn_svg_only).root
+    assert_equal(3, graph.send(:get_x_values).length)
+    assert_equal(Time.local(2020, 1, 2).to_i, graph.send(:min_x_range))
+    assert_not_nil(REXML::XPath.first(root, "//*[local-name()='clipPath']"))
+  end
+
   def test_plot
 
       projection = [
