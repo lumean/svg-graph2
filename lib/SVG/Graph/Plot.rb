@@ -148,6 +148,8 @@ module SVG
       attr_accessor :round_popups
       # Apply a padding before the first x datapoint
       attr_accessor :min_x_padding
+      # Clip chart data to exact configured bounds rather than expanding them.
+      attr_accessor :strict_bounds
 
 
       # Adds data to the plot.  The data must be in X,Y pairs; EG
@@ -248,6 +250,18 @@ module SVG
         @border_right = label_right if label_right > @border_right
       end
 
+      def calculate_graph_dimensions
+        if strict_bounds
+          [[min_x_range, max_x_range], [min_y_range, max_y_range]].each do |minimum, maximum|
+            unless minimum.is_a?(Numeric) && maximum.is_a?(Numeric) && minimum.real? && maximum.real? &&
+                   minimum.finite? && maximum.finite? && maximum > minimum && (maximum - minimum).finite?
+              raise ArgumentError, 'Strict axis bounds must be finite and have a positive range'
+            end
+          end
+        end
+        super
+      end
+
       X = 0
       Y = 1
 
@@ -273,6 +287,8 @@ module SVG
 
       # allow the range to be extended from the datapoint max.
       def max_x_range
+        return max_x_value if strict_bounds && !max_x_value.nil?
+
         max_value = max_x_datapoint
 
         if max_x_value
@@ -290,6 +306,8 @@ module SVG
       end
 
       def min_x_range
+        return min_x_value if strict_bounds && !min_x_value.nil?
+
         min_value = min_x_datapoint
         if min_x_value
           min_value = min_value < min_x_value ? min_value : min_x_value if min_x_value
@@ -303,7 +321,7 @@ module SVG
           end
         end
 
-        min_value = min_value.floor if scale_x_integers
+        min_value = min_value.floor if scale_x_integers && !strict_bounds
 
         min_value
       end
@@ -316,10 +334,13 @@ module SVG
         scale_range = max_value - min_value
 
         scale_division = scale_x_divisions || (scale_range / 9.0)
+        validate_strict_division(scale_division) if strict_bounds
         if scale_x_integers
           scale_division = scale_division < 1 ? 1 : scale_division.ceil
         end
         @x_scale_division = scale_division
+
+        return strict_tick_values(min_value, max_value, scale_division, scale_x_integers) if strict_bounds
 
         x_times = ((max_value.to_f - min_value) / @x_scale_division.to_f).ceil + 1
         rv = []
@@ -336,6 +357,8 @@ module SVG
       end
 
       def max_y_range
+        return max_y_value if strict_bounds && !max_y_value.nil?
+
         max_value = max_y_datapoint
 
         if max_y_value
@@ -361,6 +384,8 @@ module SVG
       end
 
       def min_y_range
+        return min_y_value if strict_bounds && !min_y_value.nil?
+
         min_value = min_y_datapoint
         min_value = min_value < min_y_value ? min_value : min_y_value if min_y_value
         min_value
@@ -372,6 +397,7 @@ module SVG
         scale_range = max_value - min_value
 
         scale_division = scale_y_divisions || (scale_range / 9.0)
+        validate_strict_division(scale_division) if strict_bounds
 
         if scale_y_integers
           scale_division = scale_division < 1 ? 1 : scale_division.ceil
@@ -382,6 +408,9 @@ module SVG
 
       def get_y_values
         min_value, max_value, @y_scale_division = y_label_range
+        if strict_bounds
+          return strict_tick_values(min_value, max_value, @y_scale_division, scale_y_integers)
+        end
         if max_value != min_value
           while (max_value - min_value) < @y_scale_division
             @y_scale_division /= 9.0
@@ -394,8 +423,77 @@ module SVG
       end
       alias :get_y_labels :get_y_values
 
+      def strict_tick_values(minimum, maximum, division, integers)
+        validate_strict_division(division)
+        first = integers ? minimum.ceil : minimum
+        return [] if first > maximum
+
+        count = ((maximum - first).to_f / division).floor + 1
+        Array.new(count) { |index| first + index * division }
+      end
+
+      def validate_strict_division(division)
+        return if division.is_a?(Numeric) && division.real? && division.finite? && division > 0
+
+        raise ArgumentError, 'Axis division must be a positive finite number'
+      end
+
+      def x_label_position(label, count, width)
+        return super unless strict_bounds
+
+        (get_x_values[count] - min_x_range).to_f / (max_x_range - min_x_range) * @graph_width
+      end
+
+      def y_label_distance(label, count, height)
+        return super unless strict_bounds
+
+        (label - min_y_range).to_f / (max_y_range - min_y_range) * @graph_height
+      end
+
+      def draw_x_guidelines(width, count)
+        return super unless strict_bounds
+
+        x = x_label_position(nil, count, width)
+        @graph.add_element('path', { 'd' => "M#{x} 0 v#{@graph_height}", 'class' => 'guideLines' }) if x > 0
+      end
+
+      def draw_y_guidelines(height, count)
+        return super unless strict_bounds
+
+        distance = y_label_distance(get_y_values[count], count, height)
+        return unless distance > 0
+
+        @graph.add_element('path', {
+          'd' => "M0 #{@graph_height - distance} h#{@graph_width}", 'class' => 'guideLines'
+        })
+      end
+
+      def draw_x_axis
+        return super unless strict_bounds && !@x_axis_position.nil?
+
+        y = @graph_height * (1 - (@x_axis_position - min_y_range).to_f / (max_y_range - min_y_range))
+        @graph.add_element('path', { 'd' => "M 0 #{y} h#{@graph_width}", 'class' => 'axis', 'id' => 'yAxis' })
+      end
+
+      def draw_y_axis
+        return super unless strict_bounds && !@y_axis_position.nil?
+
+        x = @graph_width * (strict_x_axis_position - min_x_range).to_f / (max_x_range - min_x_range)
+        @graph.add_element('path', { 'd' => "M #{x} 0 v#{@graph_height}", 'class' => 'axis', 'id' => 'xAxis' })
+      end
+
+      def strict_x_axis_position
+        @y_axis_position
+      end
+
       # calculates the x,y coordinates of a datapoint in the plot area
       def calc_coords(x, y)
+        if strict_bounds
+          return {
+            :x => x.to_f / (max_x_range - min_x_range) * @graph_width,
+            :y => @graph_height - y.to_f / (max_y_range - min_y_range) * @graph_height
+          }
+        end
         coords = {:x => 0, :y => 0}
         # scale the coordinates, use float division / multiplication
         # otherwise the point will be place inaccurate
@@ -405,6 +503,14 @@ module SVG
       end
 
       def draw_data
+        original_graph = @graph
+        if strict_bounds
+          id = "svg-graph-#{object_id}-#{@doc.object_id}-clip"
+          clip = @root.elements['defs'].add_element('clipPath', { 'id' => id })
+          clip.add_element('rect', { 'x' => 0, 'y' => 0, 'width' => @graph_width, 'height' => @graph_height })
+          @graph = original_graph.add_element('g', { 'clip-path' => "url(##{id})" })
+          @foreground.attributes['clip-path'] = "url(##{id})"
+        end
         line = 1
 
         x_min = min_x_range
@@ -453,6 +559,8 @@ module SVG
           end
           line += 1
         end
+      ensure
+        @graph = original_graph
       end
 
       # returns the formatted string which is added as popup information

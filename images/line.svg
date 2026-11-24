@@ -1,80 +1,524 @@
-<?xml version='1.0'?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
-<svg xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 640 480' height='480' width='640' xmlns='http://www.w3.org/2000/svg'>
-    <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-  -->
-    <!-- Created with SVG::Graph 
-  -->
-    <!-- Sean Russell 
-  -->
-    <!-- Based on SVG::TT::Graph for Perl by Leo Lapworth & Stephan Morgan 
-  -->
-    <!-- //////////////////////////////////////////////////////////////////
-  -->
-  <defs/>
-    <!--SVG Background
-  -->
-  <rect x='0' class='svgBackground' y='0' height='480' style='fill:#ffffff;' width='640'/>
-  <g transform='translate( 28.8 26 )'>
-    <rect x='0' class='graphBackground' y='0' height='435' style='fill:#f0f0f0;' width='546.2'/>
-    <path class='axis' d='M 0 0 v435' id='xAxis' style='stroke: #000000; stroke-width: 1px;'/>
-    <path class='axis' d='M 0 435 h546.2' id='yAxis' style='stroke: #000000; stroke-width: 1px;'/>
-    <text x='0.0' class='xAxisLabels' y='450' style='text-anchor: middle; fill: #000000; font-size: 12px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;text-anchor: middle'>Internet</text>
-    <text x='130.55' class='xAxisLabels' y='450' style='text-anchor: middle; fill: #000000; font-size: 12px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;text-anchor: middle'>TV</text>
-    <text x='261.1' class='xAxisLabels' y='450' style='text-anchor: middle; fill: #000000; font-size: 12px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;text-anchor: middle'>Newspaper</text>
-    <text x='391.65' class='xAxisLabels' y='450' style='text-anchor: middle; fill: #000000; font-size: 12px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;text-anchor: middle'>Magazine</text>
-    <text x='522.2' class='xAxisLabels' y='450' style='text-anchor: middle; fill: #000000; font-size: 12px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;text-anchor: middle'>Radio
-</text>
-    <text x='-3' class='yAxisLabels' y='439.0' style='text-anchor: end; fill: #000000; font-size: 12px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;text-anchor: end'>0</text>
-    <text x='-3' class='yAxisLabels' y='302.0' style='text-anchor: end; fill: #000000; font-size: 12px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;text-anchor: end'>1</text>
-    <path class='guideLines' d='M0 298.0 h546.2' style='stroke: #666666; stroke-width: 1px; stroke-dasharray: 5 5;'/>
-    <text x='-3' class='yAxisLabels' y='165.0' style='text-anchor: end; fill: #000000; font-size: 12px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;text-anchor: end'>2</text>
-    <path class='guideLines' d='M0 161.0 h546.2' style='stroke: #666666; stroke-width: 1px; stroke-dasharray: 5 5;'/>
-    <text x='-3' class='yAxisLabels' y='28.0' style='text-anchor: end; fill: #000000; font-size: 12px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;text-anchor: end'>3</text>
-    <path class='guideLines' d='M0 24.0 h546.2' style='stroke: #666666; stroke-width: 1px; stroke-dasharray: 5 5;'/>
-    <path class='fill2' d='M0 435 L0.0 298.0 130.55 298.0 261.1 435.0 391.65 24.0 522.2 298.0  V435 Z' style='fill: #0000cc; fill-opacity: 0.2; stroke: none;'/>
-    <path class='line2' d='M0 435 M0 435 L0.0 298.0 130.55 298.0 261.1 435.0 391.65 24.0 522.2 298.0 ' style='fill: none; stroke: #0000ff; stroke-width: 1px;'/>
-    <circle cy='298.0' class='dataPoint2' r='2.5' style='fill: #0000ff; stroke: none; stroke-width: 1px;' cx='0.0'/>
-    <circle cy='298.0' class='dataPoint2' r='2.5' style='fill: #0000ff; stroke: none; stroke-width: 1px;' cx='130.55'/>
-    <circle cy='435.0' class='dataPoint2' r='2.5' style='fill: #0000ff; stroke: none; stroke-width: 1px;' cx='261.1'/>
-    <circle cy='24.0' class='dataPoint2' r='2.5' style='fill: #0000ff; stroke: none; stroke-width: 1px;' cx='391.65'/>
-    <circle cy='298.0' class='dataPoint2' r='2.5' style='fill: #0000ff; stroke: none; stroke-width: 1px;' cx='522.2'/>
-    <path class='fill1' d='M0 435 L0.0 161.0 130.55 161.0 261.1 435.0 391.65 24.0 522.2 435.0  V435 Z' style='fill: #cc0000; fill-opacity: 0.2; stroke: none;'/>
-    <path class='line1' d='M0 435 M0 435 L0.0 161.0 130.55 161.0 261.1 435.0 391.65 24.0 522.2 435.0 ' style='fill: none; stroke: #ff0000; stroke-width: 1px;'/>
-    <circle cy='161.0' class='dataPoint1' r='2.5' style='fill: #ff0000; stroke: none; stroke-width: 1px;' cx='0.0'/>
-    <circle cy='161.0' class='dataPoint1' r='2.5' style='fill: #ff0000; stroke: none; stroke-width: 1px;' cx='130.55'/>
-    <circle cy='435.0' class='dataPoint1' r='2.5' style='fill: #ff0000; stroke: none; stroke-width: 1px;' cx='261.1'/>
-    <circle cy='24.0' class='dataPoint1' r='2.5' style='fill: #ff0000; stroke: none; stroke-width: 1px;' cx='391.65'/>
-    <circle cy='435.0' class='dataPoint1' r='2.5' style='fill: #ff0000; stroke: none; stroke-width: 1px;' cx='522.2'/>
-    <g>
-      <text x='0.0' class='dataPointLabel' y='292.0' style='fill: #000000; text-anchor:middle; font-size: 10px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal; stroke: #fff; stroke-width: 2;'>1</text>
-      <text x='0.0' class='dataPointLabel' y='292.0' style='fill: #000000; text-anchor:middle; font-size: 10px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;'>1</text>
-      <text x='130.55' class='dataPointLabel' y='292.0' style='fill: #000000; text-anchor:middle; font-size: 10px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal; stroke: #fff; stroke-width: 2;'>1</text>
-      <text x='130.55' class='dataPointLabel' y='292.0' style='fill: #000000; text-anchor:middle; font-size: 10px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;'>1</text>
-      <text x='261.1' class='dataPointLabel' y='429.0' style='fill: #000000; text-anchor:middle; font-size: 10px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal; stroke: #fff; stroke-width: 2;'>0</text>
-      <text x='261.1' class='dataPointLabel' y='429.0' style='fill: #000000; text-anchor:middle; font-size: 10px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;'>0</text>
-      <text x='391.65' class='dataPointLabel' y='18.0' style='fill: #000000; text-anchor:middle; font-size: 10px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal; stroke: #fff; stroke-width: 2;'>3</text>
-      <text x='391.65' class='dataPointLabel' y='18.0' style='fill: #000000; text-anchor:middle; font-size: 10px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;'>3</text>
-      <text x='522.2' class='dataPointLabel' y='292.0' style='fill: #000000; text-anchor:middle; font-size: 10px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal; stroke: #fff; stroke-width: 2;'>1</text>
-      <text x='522.2' class='dataPointLabel' y='292.0' style='fill: #000000; text-anchor:middle; font-size: 10px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;'>1</text>
-      <text x='0.0' class='dataPointLabel' y='155.0' style='fill: #000000; text-anchor:middle; font-size: 10px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal; stroke: #fff; stroke-width: 2;'>2</text>
-      <text x='0.0' class='dataPointLabel' y='155.0' style='fill: #000000; text-anchor:middle; font-size: 10px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;'>2</text>
-      <text x='130.55' class='dataPointLabel' y='155.0' style='fill: #000000; text-anchor:middle; font-size: 10px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal; stroke: #fff; stroke-width: 2;'>2</text>
-      <text x='130.55' class='dataPointLabel' y='155.0' style='fill: #000000; text-anchor:middle; font-size: 10px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;'>2</text>
-      <text x='261.1' class='dataPointLabel' y='429.0' style='fill: #000000; text-anchor:middle; font-size: 10px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal; stroke: #fff; stroke-width: 2;'>0</text>
-      <text x='261.1' class='dataPointLabel' y='429.0' style='fill: #000000; text-anchor:middle; font-size: 10px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;'>0</text>
-      <text x='391.65' class='dataPointLabel' y='18.0' style='fill: #000000; text-anchor:middle; font-size: 10px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal; stroke: #fff; stroke-width: 2;'>3</text>
-      <text x='391.65' class='dataPointLabel' y='18.0' style='fill: #000000; text-anchor:middle; font-size: 10px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;'>3</text>
-      <text x='522.2' class='dataPointLabel' y='429.0' style='fill: #000000; text-anchor:middle; font-size: 10px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal; stroke: #fff; stroke-width: 2;'>0</text>
-      <text x='522.2' class='dataPointLabel' y='429.0' style='fill: #000000; text-anchor:middle; font-size: 10px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;'>0</text>
-    </g>
-  </g>
-  <text x='320' class='mainTitle' y='16' style='text-anchor: middle; fill: #000000; font-size: 16px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;'>Question 7
-</text>
-  <g transform='translate(585.0 46)'>
-    <rect x='0' class='key1' y='0' height='12' style='fill: #ff0000; stroke: none; stroke-width: 1px;' width='12'/>
-    <text x='17' class='keyText' y='12' style='fill: #000000; text-anchor:start; font-size: 10px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;'>Female</text>
-    <rect x='0' class='key2' y='17' height='12' style='fill: #0000ff; stroke: none; stroke-width: 1px;' width='12'/>
-    <text x='17' class='keyText' y='29' style='fill: #000000; text-anchor:start; font-size: 10px; font-family: &quot;Arial&quot;, sans-serif; font-weight: normal;'>Male</text>
-  </g>
+<svg width='640' height='480' viewBox='0 0 640 480' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:a3='http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/' a3:scriptImplementation='Adobe'>
+<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
+<!-- Created with SVG::Graph -->
+<!-- SVG::Graph by Sean E. Russell -->
+<!-- Losely based on SVG::TT::Graph for Perl by Leo Lapworth & Stephan Morgan -->
+<!-- //////////////////////////////////////////////////////////////////-->
+<defs>
+<style type='text/css'>
+<![CDATA[/* Copy from here for external style sheet */
+.svgBackground{
+  fill:#ffffff;
+}
+.graphBackground{
+  fill:#f0f0f0;
+}
+
+/* graphs titles */
+.mainTitle{
+  text-anchor: middle;
+  fill: #000000;
+  font-size: 16px;
+  font-family: "Arial", sans-serif;
+  font-weight: normal;
+}
+.subTitle{
+  text-anchor: middle;
+  fill: #999999;
+  font-size: 14px;
+  font-family: "Arial", sans-serif;
+  font-weight: normal;
+}
+
+.axis{
+  stroke: #000000;
+  stroke-width: 1px;
+}
+
+.guideLines{
+  stroke: #666666;
+  stroke-width: 1px;
+  stroke-dasharray: 5 5;
+}
+
+.xAxisLabels{
+  text-anchor: middle;
+  fill: #000000;
+  font-size: 12px;
+  font-family: "Arial", sans-serif;
+  font-weight: normal;
+}
+
+.yAxisLabels{
+  text-anchor: end;
+  fill: #000000;
+  font-size: 12px;
+  font-family: "Arial", sans-serif;
+  font-weight: normal;
+}
+
+.xAxisTitle{
+  text-anchor: middle;
+  fill: #ff0000;
+  font-size: 14px;
+  font-family: "Arial", sans-serif;
+  font-weight: normal;
+}
+
+.yAxisTitle{
+  fill: #ff0000;
+  text-anchor: middle;
+  font-size: 14px;
+  font-family: "Arial", sans-serif;
+  font-weight: normal;
+}
+
+.dataPointLabel, .dataPointLabelBackground, .dataPointPopup, .dataPointPopupMask{
+  fill: #000000;
+  text-anchor:middle;
+  font-size: 10px;
+  font-family: "Arial", sans-serif;
+  font-weight: normal;
+}
+
+.dataPointLabelBackground{
+  stroke: #ffffff;
+  stroke-width: 2;
+}
+
+.dataPointPopupMask{
+  stroke: white;
+  stroke-width: 7;
+}
+
+.dataPointPopup{
+  fill: black;
+  stroke-width: 2;
+}
+
+.staggerGuideLine{
+  fill: none;
+  stroke: #000000;
+  stroke-width: 0.5px;
+}
+
+/* default line styles */
+.line1{
+	fill: none;
+	stroke: #ff0000;
+	stroke-width: 1px;
+}
+.line2{
+	fill: none;
+	stroke: #0000ff;
+	stroke-width: 1px;
+}
+.line3{
+	fill: none;
+	stroke: #00ff00;
+	stroke-width: 1px;
+}
+.line4{
+	fill: none;
+	stroke: #ffcc00;
+	stroke-width: 1px;
+}
+.line5{
+	fill: none;
+	stroke: #00ccff;
+	stroke-width: 1px;
+}
+.line6{
+	fill: none;
+	stroke: #ff00ff;
+	stroke-width: 1px;
+}
+.line7{
+	fill: none;
+	stroke: #00ffff;
+	stroke-width: 1px;
+}
+.line8{
+	fill: none;
+	stroke: #ffff00;
+	stroke-width: 1px;
+}
+.line9{
+	fill: none;
+	stroke: #cc6666;
+	stroke-width: 1px;
+}
+.line10{
+	fill: none;
+	stroke: #663399;
+	stroke-width: 1px;
+}
+.line11{
+	fill: none;
+	stroke: #339900;
+	stroke-width: 1px;
+}
+.line12{
+	fill: none;
+	stroke: #9966FF;
+	stroke-width: 1px;
+}
+/* default fill styles */
+.fill1{
+	fill: #cc0000;
+	fill-opacity: 0.2;
+	stroke: none;
+}
+.fill2{
+	fill: #0000cc;
+	fill-opacity: 0.2;
+	stroke: none;
+}
+.fill3{
+	fill: #00cc00;
+	fill-opacity: 0.2;
+	stroke: none;
+}
+.fill4{
+	fill: #ffcc00;
+	fill-opacity: 0.2;
+	stroke: none;
+}
+.fill5{
+	fill: #00ccff;
+	fill-opacity: 0.2;
+	stroke: none;
+}
+.fill6{
+	fill: #ff00ff;
+	fill-opacity: 0.2;
+	stroke: none;
+}
+.fill7{
+	fill: #00ffff;
+	fill-opacity: 0.2;
+	stroke: none;
+}
+.fill8{
+	fill: #ffff00;
+	fill-opacity: 0.2;
+	stroke: none;
+}
+.fill9{
+	fill: #cc6666;
+	fill-opacity: 0.2;
+	stroke: none;
+}
+.fill10{
+	fill: #663399;
+	fill-opacity: 0.2;
+	stroke: none;
+}
+.fill11{
+	fill: #339900;
+	fill-opacity: 0.2;
+	stroke: none;
+}
+.fill12{
+	fill: #9966FF;
+	fill-opacity: 0.2;
+	stroke: none;
+}
+/* default line styles */
+.key1,.dataPoint1{
+	fill: #ff0000;
+	stroke: none;
+	stroke-width: 1px;
+}
+.key2,.dataPoint2{
+	fill: #0000ff;
+	stroke: none;
+	stroke-width: 1px;
+}
+.key3,.dataPoint3{
+	fill: #00ff00;
+	stroke: none;
+	stroke-width: 1px;
+}
+.key4,.dataPoint4{
+	fill: #ffcc00;
+	stroke: none;
+	stroke-width: 1px;
+}
+.key5,.dataPoint5{
+	fill: #00ccff;
+	stroke: none;
+	stroke-width: 1px;
+}
+.key6,.dataPoint6{
+	fill: #ff00ff;
+	stroke: none;
+	stroke-width: 1px;
+}
+.key7,.dataPoint7{
+	fill: #00ffff;
+	stroke: none;
+	stroke-width: 1px;
+}
+.key8,.dataPoint8{
+	fill: #ffff00;
+	stroke: none;
+	stroke-width: 1px;
+}
+.key9,.dataPoint9{
+	fill: #cc6666;
+	stroke: none;
+	stroke-width: 1px;
+}
+.key10,.dataPoint10{
+	fill: #663399;
+	stroke: none;
+	stroke-width: 1px;
+}
+.key11,.dataPoint11{
+	fill: #339900;
+	stroke: none;
+	stroke-width: 1px;
+}
+.key12,.dataPoint12{
+	fill: #9966FF;
+	stroke: none;
+	stroke-width: 1px;
+}
+
+
+.keyText{
+  fill: #000000;
+  text-anchor:start;
+  font-size: 10px;
+  font-family: "Arial", sans-serif;
+  font-weight: normal;
+}
+/* End copy for external style sheet */
+]]>
+</style>
+</defs>
+<!-- include default stylesheet if none specified -->
+<!--SVG Background-->
+<rect width='640' height='480' x='0' y='0' class='svgBackground'/>
+<g transform='translate( 71.0 26 )'>
+<rect x='0' y='0' width='486.0' height='396' class='graphBackground'/>
+<path d='M 0 303.0567986230637 h486.0' class='axis' id='yAxis'/>
+<path d='M 208.28571428571428 0 v396' class='axis' id='xAxis'/>
+<text class='xAxisLabels' x='0.0' y='411' style='text-anchor: middle'>jan</text>
+<text class='xAxisLabels' x='69.42857142857143' y='428' style='text-anchor: middle'>feb</text>
+<path d='M69.42857142857143 396 v17' class='staggerGuideLine'/>
+<path d='M69.42857142857143 0 v396' class='guideLines'/>
+<text class='xAxisLabels' x='138.85714285714286' y='411' style='text-anchor: middle'>mar</text>
+<path d='M138.85714285714286 0 v396' class='guideLines'/>
+<text class='xAxisLabels' x='208.28571428571428' y='428' style='text-anchor: middle'>apr</text>
+<path d='M208.28571428571428 396 v17' class='staggerGuideLine'/>
+<path d='M208.28571428571428 0 v396' class='guideLines'/>
+<text class='xAxisLabels' x='277.7142857142857' y='411' style='text-anchor: middle'>may</text>
+<path d='M277.7142857142857 0 v396' class='guideLines'/>
+<text class='xAxisLabels' x='347.14285714285717' y='428' style='text-anchor: middle'>jun</text>
+<path d='M347.14285714285717 396 v17' class='staggerGuideLine'/>
+<path d='M347.14285714285717 0 v396' class='guideLines'/>
+<text class='xAxisLabels' x='416.57142857142856' y='411' style='text-anchor: middle'>jul</text>
+<path d='M416.57142857142856 0 v396' class='guideLines'/>
+<text class='xAxisLabels' x='486.0' y='428' style='text-anchor: middle'>aug</text>
+<path d='M486.0 396 v17' class='staggerGuideLine'/>
+<path d='M486.0 0 v396' class='guideLines'/>
+<text x='3' y='400.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 400.0 ) '>-4.00</text>
+<text x='3' y='364.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 364.0 ) '>-0.51</text>
+<path d='M0 360.0 h486.0' class='guideLines'/>
+<text x='3' y='328.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 328.0 ) '>2.97</text>
+<path d='M0 324.0 h486.0' class='guideLines'/>
+<text x='3' y='292.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 292.0 ) '>6.46</text>
+<path d='M0 288.0 h486.0' class='guideLines'/>
+<text x='3' y='256.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 256.0 ) '>9.94</text>
+<path d='M0 252.0 h486.0' class='guideLines'/>
+<text x='3' y='220.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 220.0 ) '>13.43</text>
+<path d='M0 216.0 h486.0' class='guideLines'/>
+<text x='3' y='184.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 184.0 ) '>16.92</text>
+<path d='M0 180.0 h486.0' class='guideLines'/>
+<text x='3' y='148.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 148.0 ) '>20.40</text>
+<path d='M0 144.0 h486.0' class='guideLines'/>
+<text x='3' y='112.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 112.0 ) '>23.89</text>
+<path d='M0 108.0 h486.0' class='guideLines'/>
+<text x='3' y='76.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 76.0 ) '>27.37</text>
+<path d='M0 72.0 h486.0' class='guideLines'/>
+<text x='3' y='40.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 40.0 ) '>30.86</text>
+<path d='M0 36.0 h486.0' class='guideLines'/>
+<path d='M0.0 396.0 L0.0 313.3838209982788 69.42857142857143 168.80550774526677 138.85714285714286 323.71084337349396 208.28571428571428 282.4027538726334 277.7142857142857 272.07573149741825 347.14285714285717 199.7865748709122 416.57142857142856 220.4406196213425 486.0 334.0378657487091 486.0 396.0 416.57142857142856 396.0 347.14285714285717 396.0 277.7142857142857 396.0 208.28571428571428 396.0 138.85714285714286 396.0 69.42857142857143 396.0 0.0 396.0 Z' class='fill2'/>
+<path d='M0.0 313.3838209982788 L69.42857142857143 168.80550774526677 138.85714285714286 323.71084337349396 208.28571428571428 282.4027538726334 277.7142857142857 272.07573149741825 347.14285714285717 199.7865748709122 416.57142857142856 220.4406196213425 486.0 334.0378657487091 ' class='line2'/>
+<circle cx='0.0' cy='313.3838209982788' r='2.5' class='dataPoint2'/>
+<circle cx='69.42857142857143' cy='168.80550774526677' r='2.5' class='dataPoint2'/>
+<circle cx='138.85714285714286' cy='323.71084337349396' r='2.5' class='dataPoint2'/>
+<circle cx='208.28571428571428' cy='282.4027538726334' r='2.5' class='dataPoint2'/>
+<circle cx='277.7142857142857' cy='272.07573149741825' r='2.5' class='dataPoint2'/>
+<circle cx='347.14285714285717' cy='199.7865748709122' r='2.5' class='dataPoint2'/>
+<circle cx='416.57142857142856' cy='220.4406196213425' r='2.5' class='dataPoint2'/>
+<circle cx='486.0' cy='334.0378657487091' r='2.5' class='dataPoint2'/>
+<path d='M0.0 313.3838209982788 L0.0 282.4027538726334 69.42857142857143 53.14285714285711 138.85714285714286 300.9913941480207 208.28571428571428 338.1686746987952 277.7142857142857 81.02581755593803 347.14285714285717 121.30120481927707 416.57142857142856 202.88468158347675 486.0 212.17900172117035 486.0 334.0378657487091 416.57142857142856 220.4406196213425 347.14285714285717 199.7865748709122 277.7142857142857 272.07573149741825 208.28571428571428 282.4027538726334 138.85714285714286 323.71084337349396 69.42857142857143 168.80550774526677 0.0 313.3838209982788 Z' class='fill1'/>
+<path d='M0.0 282.4027538726334 L69.42857142857143 53.14285714285711 138.85714285714286 300.9913941480207 208.28571428571428 338.1686746987952 277.7142857142857 81.02581755593803 347.14285714285717 121.30120481927707 416.57142857142856 202.88468158347675 486.0 212.17900172117035 ' class='line1'/>
+<circle cx='0.0' cy='282.4027538726334' r='2.5' class='dataPoint1'/>
+<circle cx='69.42857142857143' cy='53.14285714285711' r='2.5' class='dataPoint1'/>
+<circle cx='138.85714285714286' cy='300.9913941480207' r='2.5' class='dataPoint1'/>
+<circle cx='208.28571428571428' cy='338.1686746987952' r='2.5' class='dataPoint1'/>
+<circle cx='277.7142857142857' cy='81.02581755593803' r='2.5' class='dataPoint1'/>
+<circle cx='347.14285714285717' cy='121.30120481927707' r='2.5' class='dataPoint1'/>
+<circle cx='416.57142857142856' cy='202.88468158347675' r='2.5' class='dataPoint1'/>
+<circle cx='486.0' cy='212.17900172117035' r='2.5' class='dataPoint1'/>
+<g>
+<text x='0.0' y='307.3838209982788' class='dataPointLabelBackground' style='text-anchor: start;'>4.00</text>
+<text x='0.0' y='307.3838209982788' class='dataPointLabel' style='text-anchor: start;'>4.00</text>
+<g id='2960' visibility='hidden'>
+<text x='5.0' y='301.3838209982788' class='dataPointPopupMask' style='text-anchor: start;'>4</text>
+<text x='5.0' y='301.3838209982788' class='dataPointPopup' style='text-anchor: start;'>4</text>
+</g>
+<a xlink:href=''>
+<circle cx='0.0' cy='313.3838209982788' r='10' style='opacity: 0' onmouseover='document.getElementById(2960).style.visibility =&apos;visible&apos;' onmouseout='document.getElementById(2960).style.visibility = &apos;hidden&apos;'/>
+</a>
+<text x='69.42857142857143' y='162.80550774526677' class='dataPointLabelBackground'>18.00</text>
+<text x='69.42857142857143' y='162.80550774526677' class='dataPointLabel'>18.00</text>
+<g id='2968' visibility='hidden'>
+<text x='74.42857142857143' y='156.80550774526677' class='dataPointPopupMask' style='text-anchor: start;'>18</text>
+<text x='74.42857142857143' y='156.80550774526677' class='dataPointPopup' style='text-anchor: start;'>18</text>
+</g>
+<a xlink:href=''>
+<circle cx='69.42857142857143' cy='168.80550774526677' r='10' style='opacity: 0' onmouseover='document.getElementById(2968).style.visibility =&apos;visible&apos;' onmouseout='document.getElementById(2968).style.visibility = &apos;hidden&apos;'/>
+</a>
+<text x='138.85714285714286' y='317.71084337349396' class='dataPointLabelBackground'>3.00</text>
+<text x='138.85714285714286' y='317.71084337349396' class='dataPointLabel'>3.00</text>
+<g id='2976' visibility='hidden'>
+<text x='143.85714285714286' y='311.71084337349396' class='dataPointPopupMask' style='text-anchor: start;'>3</text>
+<text x='143.85714285714286' y='311.71084337349396' class='dataPointPopup' style='text-anchor: start;'>3</text>
+</g>
+<a xlink:href=''>
+<circle cx='138.85714285714286' cy='323.71084337349396' r='10' style='opacity: 0' onmouseover='document.getElementById(2976).style.visibility =&apos;visible&apos;' onmouseout='document.getElementById(2976).style.visibility = &apos;hidden&apos;'/>
+</a>
+<text x='208.28571428571428' y='276.4027538726334' class='dataPointLabelBackground'>7.00</text>
+<text x='208.28571428571428' y='276.4027538726334' class='dataPointLabel'>7.00</text>
+<g id='2984' visibility='hidden'>
+<text x='213.28571428571428' y='270.4027538726334' class='dataPointPopupMask' style='text-anchor: start;'>7</text>
+<text x='213.28571428571428' y='270.4027538726334' class='dataPointPopup' style='text-anchor: start;'>7</text>
+</g>
+<a xlink:href=''>
+<circle cx='208.28571428571428' cy='282.4027538726334' r='10' style='opacity: 0' onmouseover='document.getElementById(2984).style.visibility =&apos;visible&apos;' onmouseout='document.getElementById(2984).style.visibility = &apos;hidden&apos;'/>
+</a>
+<text x='277.7142857142857' y='266.07573149741825' class='dataPointLabelBackground'>8.00</text>
+<text x='277.7142857142857' y='266.07573149741825' class='dataPointLabel'>8.00</text>
+<g id='2992' visibility='hidden'>
+<text x='282.7142857142857' y='260.07573149741825' class='dataPointPopupMask' style='text-anchor: start;'>8</text>
+<text x='282.7142857142857' y='260.07573149741825' class='dataPointPopup' style='text-anchor: start;'>8</text>
+</g>
+<a xlink:href=''>
+<circle cx='277.7142857142857' cy='272.07573149741825' r='10' style='opacity: 0' onmouseover='document.getElementById(2992).style.visibility =&apos;visible&apos;' onmouseout='document.getElementById(2992).style.visibility = &apos;hidden&apos;'/>
+</a>
+<text x='347.14285714285717' y='193.7865748709122' class='dataPointLabelBackground'>15.00</text>
+<text x='347.14285714285717' y='193.7865748709122' class='dataPointLabel'>15.00</text>
+<g id='3000' visibility='hidden'>
+<text x='352.14285714285717' y='187.7865748709122' class='dataPointPopupMask' style='text-anchor: start;'>15</text>
+<text x='352.14285714285717' y='187.7865748709122' class='dataPointPopup' style='text-anchor: start;'>15</text>
+</g>
+<a xlink:href=''>
+<circle cx='347.14285714285717' cy='199.7865748709122' r='10' style='opacity: 0' onmouseover='document.getElementById(3000).style.visibility =&apos;visible&apos;' onmouseout='document.getElementById(3000).style.visibility = &apos;hidden&apos;'/>
+</a>
+<text x='416.57142857142856' y='214.4406196213425' class='dataPointLabelBackground'>13.00</text>
+<text x='416.57142857142856' y='214.4406196213425' class='dataPointLabel'>13.00</text>
+<g id='3008' visibility='hidden'>
+<text x='421.57142857142856' y='208.4406196213425' class='dataPointPopupMask' style='text-anchor: start;'>13</text>
+<text x='421.57142857142856' y='208.4406196213425' class='dataPointPopup' style='text-anchor: start;'>13</text>
+</g>
+<a xlink:href=''>
+<circle cx='416.57142857142856' cy='220.4406196213425' r='10' style='opacity: 0' onmouseover='document.getElementById(3008).style.visibility =&apos;visible&apos;' onmouseout='document.getElementById(3008).style.visibility = &apos;hidden&apos;'/>
+</a>
+<text x='486.0' y='328.0378657487091' class='dataPointLabelBackground' style='text-anchor: end;'>2.00</text>
+<text x='486.0' y='328.0378657487091' class='dataPointLabel' style='text-anchor: end;'>2.00</text>
+<g id='3016' visibility='hidden'>
+<text x='481.0' y='322.0378657487091' class='dataPointPopupMask' style='text-anchor: end;'>2</text>
+<text x='481.0' y='322.0378657487091' class='dataPointPopup' style='text-anchor: end;'>2</text>
+</g>
+<a xlink:href=''>
+<circle cx='486.0' cy='334.0378657487091' r='10' style='opacity: 0' onmouseover='document.getElementById(3016).style.visibility =&apos;visible&apos;' onmouseout='document.getElementById(3016).style.visibility = &apos;hidden&apos;'/>
+</a>
+<text x='0.0' y='276.4027538726334' class='dataPointLabelBackground' style='text-anchor: start;'>7.00</text>
+<text x='0.0' y='276.4027538726334' class='dataPointLabel' style='text-anchor: start;'>7.00</text>
+<g id='3024' visibility='hidden'>
+<text x='5.0' y='270.4027538726334' class='dataPointPopupMask' style='text-anchor: start;'>7</text>
+<text x='5.0' y='270.4027538726334' class='dataPointPopup' style='text-anchor: start;'>7</text>
+</g>
+<a xlink:href=''>
+<circle cx='0.0' cy='282.4027538726334' r='10' style='opacity: 0' onmouseover='document.getElementById(3024).style.visibility =&apos;visible&apos;' onmouseout='document.getElementById(3024).style.visibility = &apos;hidden&apos;'/>
+</a>
+<text x='69.42857142857143' y='47.14285714285711' class='dataPointLabelBackground'>29.20</text>
+<text x='69.42857142857143' y='47.14285714285711' class='dataPointLabel'>29.20</text>
+<g id='3032' visibility='hidden'>
+<text x='74.42857142857143' y='41.14285714285711' class='dataPointPopupMask' style='text-anchor: start;'>29.200000000000003</text>
+<text x='74.42857142857143' y='41.14285714285711' class='dataPointPopup' style='text-anchor: start;'>29.200000000000003</text>
+</g>
+<a xlink:href=''>
+<circle cx='69.42857142857143' cy='53.14285714285711' r='10' style='opacity: 0' onmouseover='document.getElementById(3032).style.visibility =&apos;visible&apos;' onmouseout='document.getElementById(3032).style.visibility = &apos;hidden&apos;'/>
+</a>
+<text x='138.85714285714286' y='294.9913941480207' class='dataPointLabelBackground'>5.20</text>
+<text x='138.85714285714286' y='294.9913941480207' class='dataPointLabel'>5.20</text>
+<g id='3040' visibility='hidden'>
+<text x='143.85714285714286' y='288.9913941480207' class='dataPointPopupMask' style='text-anchor: start;'>5.199999999999999</text>
+<text x='143.85714285714286' y='288.9913941480207' class='dataPointPopup' style='text-anchor: start;'>5.199999999999999</text>
+</g>
+<a xlink:href=''>
+<circle cx='138.85714285714286' cy='300.9913941480207' r='10' style='opacity: 0' onmouseover='document.getElementById(3040).style.visibility =&apos;visible&apos;' onmouseout='document.getElementById(3040).style.visibility = &apos;hidden&apos;'/>
+</a>
+<text x='208.28571428571428' y='332.1686746987952' class='dataPointLabelBackground'>1.60</text>
+<text x='208.28571428571428' y='332.1686746987952' class='dataPointLabel'>1.60</text>
+<g id='3048' visibility='hidden'>
+<text x='213.28571428571428' y='326.1686746987952' class='dataPointPopupMask' style='text-anchor: start;'>1.5999999999999996</text>
+<text x='213.28571428571428' y='326.1686746987952' class='dataPointPopup' style='text-anchor: start;'>1.5999999999999996</text>
+</g>
+<a xlink:href=''>
+<circle cx='208.28571428571428' cy='338.1686746987952' r='10' style='opacity: 0' onmouseover='document.getElementById(3048).style.visibility =&apos;visible&apos;' onmouseout='document.getElementById(3048).style.visibility = &apos;hidden&apos;'/>
+</a>
+<text x='277.7142857142857' y='75.02581755593803' class='dataPointLabelBackground'>26.50</text>
+<text x='277.7142857142857' y='75.02581755593803' class='dataPointLabel'>26.50</text>
+<g id='3056' visibility='hidden'>
+<text x='282.7142857142857' y='69.02581755593803' class='dataPointPopupMask' style='text-anchor: start;'>26.5</text>
+<text x='282.7142857142857' y='69.02581755593803' class='dataPointPopup' style='text-anchor: start;'>26.5</text>
+</g>
+<a xlink:href=''>
+<circle cx='277.7142857142857' cy='81.02581755593803' r='10' style='opacity: 0' onmouseover='document.getElementById(3056).style.visibility =&apos;visible&apos;' onmouseout='document.getElementById(3056).style.visibility = &apos;hidden&apos;'/>
+</a>
+<text x='347.14285714285717' y='115.30120481927707' class='dataPointLabelBackground'>22.60</text>
+<text x='347.14285714285717' y='115.30120481927707' class='dataPointLabel'>22.60</text>
+<g id='3064' visibility='hidden'>
+<text x='352.14285714285717' y='109.30120481927707' class='dataPointPopupMask' style='text-anchor: start;'>22.6</text>
+<text x='352.14285714285717' y='109.30120481927707' class='dataPointPopup' style='text-anchor: start;'>22.6</text>
+</g>
+<a xlink:href=''>
+<circle cx='347.14285714285717' cy='121.30120481927707' r='10' style='opacity: 0' onmouseover='document.getElementById(3064).style.visibility =&apos;visible&apos;' onmouseout='document.getElementById(3064).style.visibility = &apos;hidden&apos;'/>
+</a>
+<text x='416.57142857142856' y='196.88468158347675' class='dataPointLabelBackground'>14.70</text>
+<text x='416.57142857142856' y='196.88468158347675' class='dataPointLabel'>14.70</text>
+<g id='3072' visibility='hidden'>
+<text x='421.57142857142856' y='190.88468158347675' class='dataPointPopupMask' style='text-anchor: start;'>14.7</text>
+<text x='421.57142857142856' y='190.88468158347675' class='dataPointPopup' style='text-anchor: start;'>14.7</text>
+</g>
+<a xlink:href=''>
+<circle cx='416.57142857142856' cy='202.88468158347675' r='10' style='opacity: 0' onmouseover='document.getElementById(3072).style.visibility =&apos;visible&apos;' onmouseout='document.getElementById(3072).style.visibility = &apos;hidden&apos;'/>
+</a>
+<text x='486.0' y='206.17900172117035' class='dataPointLabelBackground' style='text-anchor: end;'>13.80</text>
+<text x='486.0' y='206.17900172117035' class='dataPointLabel' style='text-anchor: end;'>13.80</text>
+<g id='3080' visibility='hidden'>
+<text x='481.0' y='200.17900172117035' class='dataPointPopupMask' style='text-anchor: end;'>13.8</text>
+<text x='481.0' y='200.17900172117035' class='dataPointPopup' style='text-anchor: end;'>13.8</text>
+</g>
+<a xlink:href=''>
+<circle cx='486.0' cy='212.17900172117035' r='10' style='opacity: 0' onmouseover='document.getElementById(3080).style.visibility =&apos;visible&apos;' onmouseout='document.getElementById(3080).style.visibility = &apos;hidden&apos;'/>
+</a>
+</g>
+</g>
+<text x='320' y='16' class='mainTitle'>Line</text>
+<text x='314.0' y='468' class='xAxisTitle'>Time</text>
+<text x='17' y='224' class='yAxisTitle' transform='rotate( -90, 17, 224 )'>Ice Cream Cones</text>
+<g transform='translate(567.0 36)'>
+<rect x='0' y='0' width='12' height='12' class='key1'/>
+<text x='17' y='12' class='keyText'>Dataset 1</text>
+<rect x='0' y='17' width='12' height='12' class='key2'/>
+<text x='17' y='29' class='keyText'>Dataset 2</text>
+</g>
 </svg>

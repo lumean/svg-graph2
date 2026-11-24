@@ -47,7 +47,7 @@ module SVG
       # apply an offset, to move the label to the middle of the Bar
       def x_label_offset(width)
         # Horizontal Bars don't center the x label text
-        return 0 if instance_of?(BarHorizontal)
+        return 0 if defined?(BarHorizontal) && instance_of?(BarHorizontal)
 
         width / 2.0
       end

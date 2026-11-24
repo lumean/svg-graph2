@@ -184,6 +184,10 @@ module SVG
         get_x_values.collect { |v| Time.at(v).strftime( x_label_format ) }
       end
 
+      def strict_x_axis_position
+        parse_time(@y_axis_position, nil).to_i
+      end
+
       private
 
       # Accepts date time as a string, number of seconds since the epoch, or Time
@@ -212,6 +216,7 @@ module SVG
         scale_range = max_value - min_value
 
         scale_division = scale_x_divisions || (scale_range / 9.0)
+        validate_strict_division(scale_division) if strict_bounds
 
         if scale_x_integers
           scale_division = scale_division < 1 ? 1 : scale_division.ceil
@@ -223,6 +228,8 @@ module SVG
           timescale_divisions =~ /(\d+) ?(day|week|month|year|hour|minute|second)?/
           division_units = $2 ? $2 : "day"
           amount = $1.to_i
+          raise ArgumentError, ':timescale_divisions must specify a positive interval' if strict_bounds && amount <= 0
+
           if amount
             step = nil
             case division_units
@@ -265,10 +272,12 @@ module SVG
               x_times = ((max_value.to_f - min_value) / @x_scale_division.to_f).ceil + 1
               x_times.times { |i| rv << (min_value + @x_scale_division * i) }
             end
-            return rv
+            return strict_bounds ? rv.select { |value| value <= max_value } : rv
           end
         end
         # if we haven't returned anything, fall back to @x_scale_division
+        return strict_tick_values(min_value, max_value, @x_scale_division, scale_x_integers) if strict_bounds
+
         x_times = ((max_value.to_f - min_value) / @x_scale_division.to_f).ceil + 1
         x_times.times { |i| rv << (min_value + @x_scale_division * i) }
         rv

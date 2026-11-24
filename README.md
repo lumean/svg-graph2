@@ -81,6 +81,26 @@ File.open('bar.svg', 'w') {|f| f.write(g.burn_svg_only)}
 
 ![example bar_horizontal graph](https://cdn.rawgit.com/lumean/svg-graph2/master/examples/bar_horizontal.svg)
 
+### Histogram
+
+Histograms bin raw numeric samples. All series share the same boundaries; bins
+include their lower bound and exclude their upper bound, except for the last
+bin, which includes the maximum. Equal samples are placed in a unit-width
+range centered on their value.
+
+```ruby
+require 'SVG/Graph/Histogram'
+graph = SVG::Graph::Histogram.new(width: 640, height: 400, bin_count: 4)
+graph.add_data(title: 'Measurements', data: [1, 2, 2, 3, 5, 6, 8, 9])
+```
+
+`bin_count` must be a positive integer; when omitted it defaults to the
+ceiling of the square root of the total sample count. Histogram inherits bar
+styling and the overlap and side-by-side options. Each series must contain
+finite numeric values.
+
+![example histogram graph](./images/histogram.svg)
+
 ### ErrBar
 
 ![example err_bar graph](https://cdn.rawgit.com/lumean/svg-graph2/master/examples/err_bar.svg)
@@ -110,6 +130,15 @@ graph.add_data(
 Use either `points` or the existing `data` argument, not both. With `points`,
 put descriptions, shapes and URLs in the rows rather than separate arrays.
 Existing `data` inputs and subclass-facing data storage remain unchanged.
+
+For exact plot boundaries, opt in to `strict_bounds: true` and supply any of
+`min_x_value`, `max_x_value`, `min_y_value` and `max_y_value`. Unspecified
+bounds use the existing automatic ranges. Points and connecting lines outside
+the plot are clipped rather than expanding it; explicit bounds must define a
+positive range. Tick divisions remain independently spaced, so the last tick
+need not coincide with the edge. For TimeSeries, x bounds accept the same time
+formats as before. Custom subclasses that override drawing without calling
+`super` must implement clipping themselves.
 
 #### Reusable point symbols
 
@@ -152,6 +181,15 @@ Source: [C3js.rb](../master/examples/c3js.rb)
 
 [Link to Preview](https://cdn.rawgit.com/lumean/svg-graph2/master/examples/c3js.html)
 
+### Example images
+
+The static charts in `images/` are generated from the corresponding SVGs in
+`examples/`, with SVG, PNG and compressed SVG (`.svgz`) versions. For
+compatibility, `bar_horizontal` is named `barhorizontal` and `err_bar` is
+named `err-plot` in `images/`. PNGs are static snapshots of the SVGs.
+The C3js example generates its charts in the browser and has no static image
+set.
+
 ### Accessibility
 
 For `Graph`-based charts (not C3js), provide a concise accessible name and,
@@ -176,6 +214,10 @@ storage and scaling, and `TimeSeries` converts time values before using Plot.
 Custom subclasses may override drawing and range methods and may inspect
 `@data` as parallel x/y arrays; those existing extension points are retained.
 `DataPoint` shape criteria are global, so configuring them affects all charts.
+
+To display a bottom legend in rows instead of the existing vertical layout,
+set `key_position: :bottom, key_layout: :horizontal`. Long entries wrap to
+multiple lines, and the graph reserves space for the legend.
 
 
 Build

@@ -44,6 +44,7 @@ the Perl original at all.
     "lib/SVG/Graph/DataPoint.rb",
     "lib/SVG/Graph/ErrBar.rb",
     "lib/SVG/Graph/Graph.rb",
+    "lib/SVG/Graph/Histogram.rb",
     "lib/SVG/Graph/Line.rb",
     "lib/SVG/Graph/Pie.rb",
     "lib/SVG/Graph/Plot.rb",

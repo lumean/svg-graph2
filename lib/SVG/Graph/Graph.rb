@@ -419,6 +419,8 @@ module SVG
       #   Where the key should be positioned, defaults to
       #   :right, set to :bottom if you want to move it.
       attr_accessor :key_position
+      # Use :horizontal to wrap a bottom legend into rows.
+      attr_accessor :key_layout
 
       attr_accessor :key_box_size
 
@@ -664,7 +666,11 @@ module SVG
       def calculate_bottom_margin
         @border_bottom = 7
         if key and key_position == :bottom
-          @border_bottom += @data.size * (font_size + 5)
+          if key_layout == :horizontal
+            @border_bottom += horizontal_legend_layout.last
+          else
+            @border_bottom += @data.size * (font_size + 5)
+          end
           @border_bottom += 10
         end
         @border_bottom += max_x_label_height_px
@@ -847,7 +853,7 @@ module SVG
             text.attributes["class"] = "xAxisLabels"
             text.text = text_str
 
-            x = count * label_width + x_label_offset( label_width )
+            x = x_label_position(label, count, label_width)
             y = @graph_height + x_label_font_size + 3
             #t = 0 - (font_size / 2)
 
@@ -885,6 +891,14 @@ module SVG
       # Centered in the field, should be width/2.  Start, 0.
       def y_label_offset( height )
         0
+      end
+
+      def x_label_position(_label, count, width)
+        count * width + x_label_offset(width)
+      end
+
+      def y_label_distance(_label, count, height)
+        height * count
       end
 
       # override this method in child class
@@ -929,7 +943,7 @@ module SVG
         get_y_labels.each do |label|
           if show_y_labels
             # x = 0, y = 0 is top left right next to graph area
-            y = y_offset - (label_height * count)
+            y = y_offset - y_label_distance(label, count, label_height)
             x = 3
 
             if stagger_y_labels && count % 2 == 1
@@ -1062,21 +1076,37 @@ module SVG
           group = @root.add_element( "g" )
 
           key_count = 0
-          for key_name in keys
-            y_offset = (key_box_size * key_count) + (key_count * key_spacing)
-            group.add_element( "rect", {
-              "x" => 0.to_s,
-              "y" => y_offset.to_s,
-              "width" => key_box_size.to_s,
-              "height" => key_box_size.to_s,
-              "class" => "key#{key_count+1}"
-            })
-            group.add_element( "text", {
-              "x" => (key_box_size + key_spacing).to_s,
-              "y" => (y_offset + key_box_size).to_s,
-              "class" => "keyText"
-            }).text = key_name.to_s
-            key_count += 1
+          if key_position == :bottom && key_layout == :horizontal
+            horizontal_legend_layout.first.each_with_index do |(x, y, lines), index|
+              group.add_element('rect', {
+                'x' => x.to_s, 'y' => y.to_s, 'width' => key_box_size.to_s,
+                'height' => key_box_size.to_s, 'class' => "key#{index + 1}"
+              })
+              lines.each_with_index do |line, line_index|
+                group.add_element('text', {
+                  'x' => (x + key_box_size + key_spacing).to_s,
+                  'y' => (y + key_font_size + line_index * key_font_size).to_s,
+                  'class' => 'keyText'
+                }).text = line
+              end
+            end
+          else
+            for key_name in keys
+              y_offset = (key_box_size * key_count) + (key_count * key_spacing)
+              group.add_element( "rect", {
+                "x" => 0.to_s,
+                "y" => y_offset.to_s,
+                "width" => key_box_size.to_s,
+                "height" => key_box_size.to_s,
+                "class" => "key#{key_count+1}"
+              })
+              group.add_element( "text", {
+                "x" => (key_box_size + key_spacing).to_s,
+                "y" => (y_offset + key_box_size).to_s,
+                "class" => "keyText"
+              }).text = key_name.to_s
+              key_count += 1
+            end
           end
 
           case key_position
@@ -1089,10 +1119,36 @@ module SVG
             if show_x_labels
               y_offset += max_x_label_height_px
             end
+
             y_offset += x_title_font_size + key_spacing if show_x_title
           end
           group.attributes["transform"] = "translate(#{x_offset} #{y_offset})"
         end
+      end
+
+      def horizontal_legend_layout
+        available = width - @border_left - @border_right - 2 * key_spacing
+        text_width = key_font_size.to_f
+        max_chars = ((available - key_box_size - key_spacing) / text_width).floor
+        raise ArgumentError, 'Chart is too narrow for a horizontal legend' if max_chars < 1
+
+        x = y = row_height = 0
+        items = keys.map do |name|
+          lines = name.to_s.chars.each_slice(max_chars).map(&:join)
+          lines = [''] if lines.empty?
+          item_width = key_box_size + key_spacing + lines.map(&:length).max * text_width
+          item_height = [key_box_size, lines.length * key_font_size].max
+          if x > 0 && x + item_width > available
+            x = 0
+            y += row_height + key_spacing
+            row_height = 0
+          end
+          item = [x, y, lines]
+          x += item_width + key_spacing * 2
+          row_height = [row_height, item_height].max
+          item
+        end
+        [items, y + row_height]
       end
 
 
@@ -1235,6 +1291,9 @@ module SVG
         calculate_top_margin
         @graph_width = width - @border_left - @border_right
         @graph_height = height - @border_top - @border_bottom
+        if key && key_position == :bottom && key_layout == :horizontal && (@graph_width <= 0 || @graph_height <= 0)
+          raise ArgumentError, 'Chart is too small for a horizontal legend'
+        end
       end
 
       def get_style

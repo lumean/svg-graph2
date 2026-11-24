@@ -1,0 +1,269 @@
+<svg width='640' height='400' viewBox='0 0 640 400' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:a3='http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/' a3:scriptImplementation='Adobe'>
+<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
+<!-- Created with SVG::Graph -->
+<!-- SVG::Graph by Sean E. Russell -->
+<!-- Losely based on SVG::TT::Graph for Perl by Leo Lapworth & Stephan Morgan -->
+<!-- //////////////////////////////////////////////////////////////////-->
+<defs>
+<style type='text/css'>
+<![CDATA[/* Copy from here for external style sheet */
+.svgBackground{
+  fill:#ffffff;
+}
+.graphBackground{
+  fill:#f0f0f0;
+}
+
+/* graphs titles */
+.mainTitle{
+  text-anchor: middle;
+  fill: #000000;
+  font-size: 16px;
+  font-family: "Arial", sans-serif;
+  font-weight: normal;
+}
+.subTitle{
+  text-anchor: middle;
+  fill: #999999;
+  font-size: 14px;
+  font-family: "Arial", sans-serif;
+  font-weight: normal;
+}
+
+.axis{
+  stroke: #000000;
+  stroke-width: 1px;
+}
+
+.guideLines{
+  stroke: #666666;
+  stroke-width: 1px;
+  stroke-dasharray: 5 5;
+}
+
+.xAxisLabels{
+  text-anchor: middle;
+  fill: #000000;
+  font-size: 12px;
+  font-family: "Arial", sans-serif;
+  font-weight: normal;
+}
+
+.yAxisLabels{
+  text-anchor: end;
+  fill: #000000;
+  font-size: 12px;
+  font-family: "Arial", sans-serif;
+  font-weight: normal;
+}
+
+.xAxisTitle{
+  text-anchor: middle;
+  fill: #ff0000;
+  font-size: 14px;
+  font-family: "Arial", sans-serif;
+  font-weight: normal;
+}
+
+.yAxisTitle{
+  fill: #ff0000;
+  text-anchor: middle;
+  font-size: 14px;
+  font-family: "Arial", sans-serif;
+  font-weight: normal;
+}
+
+.dataPointLabel, .dataPointLabelBackground, .dataPointPopup, .dataPointPopupMask{
+  fill: #000000;
+  text-anchor:middle;
+  font-size: 10px;
+  font-family: "Arial", sans-serif;
+  font-weight: normal;
+}
+
+.dataPointLabelBackground{
+  stroke: #ffffff;
+  stroke-width: 2;
+}
+
+.dataPointPopupMask{
+  stroke: white;
+  stroke-width: 7;
+}
+
+.dataPointPopup{
+  fill: black;
+  stroke-width: 2;
+}
+
+.staggerGuideLine{
+  fill: none;
+  stroke: #000000;
+  stroke-width: 0.5px;
+}
+
+/* default fill styles for multiple datasets (probably only use a single dataset on this graph though) */
+.key1,.fill1{
+	fill: #ff0000;
+	fill-opacity: 0.5;
+	stroke: none;
+	stroke-width: 0.5px;
+}
+.key2,.fill2{
+	fill: #0000ff;
+	fill-opacity: 0.5;
+	stroke: none;
+	stroke-width: 1px;
+}
+.key3,.fill3{
+	fill: #00ff00;
+	fill-opacity: 0.5;
+	stroke: none;
+	stroke-width: 1px;
+}
+.key4,.fill4{
+	fill: #ffcc00;
+	fill-opacity: 0.5;
+	stroke: none;
+	stroke-width: 1px;
+}
+.key5,.fill5{
+	fill: #00ccff;
+	fill-opacity: 0.5;
+	stroke: none;
+	stroke-width: 1px;
+}
+.key6,.fill6{
+	fill: #ff00ff;
+	fill-opacity: 0.5;
+	stroke: none;
+	stroke-width: 1px;
+}
+.key7,.fill7{
+	fill: #00ffff;
+	fill-opacity: 0.5;
+	stroke: none;
+	stroke-width: 1px;
+}
+.key8,.fill8{
+	fill: #ffff00;
+	fill-opacity: 0.5;
+	stroke: none;
+	stroke-width: 1px;
+}
+.key9,.fill9{
+	fill: #cc6666;
+	fill-opacity: 0.5;
+	stroke: none;
+	stroke-width: 1px;
+}
+.key10,.fill10{
+	fill: #663399;
+	fill-opacity: 0.5;
+	stroke: none;
+	stroke-width: 1px;
+}
+.key11,.fill11{
+	fill: #339900;
+	fill-opacity: 0.5;
+	stroke: none;
+	stroke-width: 1px;
+}
+.key12,.fill12{
+	fill: #9966FF;
+	fill-opacity: 0.5;
+	stroke: none;
+	stroke-width: 1px;
+}
+
+
+.keyText{
+  fill: #000000;
+  text-anchor:start;
+  font-size: 10px;
+  font-family: "Arial", sans-serif;
+  font-weight: normal;
+}
+/* End copy for external style sheet */
+]]>
+</style>
+</defs>
+<!-- include default stylesheet if none specified -->
+<!--SVG Background-->
+<rect width='640' height='400' x='0' y='0' class='svgBackground'/>
+<g transform='translate( 46.0 26 )'>
+<rect x='0' y='0' width='529.0' height='352' class='graphBackground'/>
+<path d='M 0 352 h529.0' class='axis' id='yAxis'/>
+<path d='M 0.0 0 v352' class='axis' id='xAxis'/>
+<text class='xAxisLabels' x='66.125' y='367' style='text-anchor: middle'>1.00 - 3.00</text>
+<text class='xAxisLabels' x='198.375' y='367' style='text-anchor: middle'>3.00 - 5.00</text>
+<text class='xAxisLabels' x='330.625' y='367' style='text-anchor: middle'>5.00 - 7.00</text>
+<text class='xAxisLabels' x='462.875' y='367' style='text-anchor: middle'>7.00 - 9.00</text>
+<text x='3' y='356.0' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 356.0 ) '>0.00</text>
+<text x='3' y='285.6' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 285.6 ) '>1.00</text>
+<path d='M0 281.6 h529.0' class='guideLines'/>
+<text x='3' y='215.2' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 215.2 ) '>2.00</text>
+<path d='M0 211.2 h529.0' class='guideLines'/>
+<text x='3' y='144.79999999999998' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 144.79999999999998 ) '>3.00</text>
+<path d='M0 140.79999999999998 h529.0' class='guideLines'/>
+<text x='3' y='74.39999999999998' class='yAxisLabels' style='text-anchor: end' transform='translate( -12 0 ) rotate( 0 3 74.39999999999998 ) '>4.00</text>
+<path d='M0 70.39999999999998 h529.0' class='guideLines'/>
+<rect x='0.0' y='140.79999999999998' width='132.25' height='211.20000000000002' class='fill1'/>
+<rect x='0.0' y='281.6' width='132.25' height='70.4' class='fill2'/>
+<rect x='132.25' y='281.6' width='132.25' height='70.4' class='fill1'/>
+<rect x='132.25' y='140.79999999999998' width='132.25' height='211.20000000000002' class='fill2'/>
+<rect x='264.5' y='211.2' width='132.25' height='140.8' class='fill1'/>
+<rect x='264.5' y='352.0' width='132.25' height='0.0' class='fill2'/>
+<rect x='396.75' y='211.2' width='132.25' height='140.8' class='fill1'/>
+<rect x='396.75' y='140.79999999999998' width='132.25' height='211.20000000000002' class='fill2'/>
+<g>
+<text x='66.125' y='134.79999999999998' class='dataPointLabelBackground'>3.00</text>
+<text x='66.125' y='134.79999999999998' class='dataPointLabel'>3.00</text>
+<a xlink:href=''>
+<circle cx='66.125' cy='140.79999999999998' r='10' style='opacity: 0'/>
+</a>
+<text x='66.125' y='275.6' class='dataPointLabelBackground'>1.00</text>
+<text x='66.125' y='275.6' class='dataPointLabel'>1.00</text>
+<a xlink:href=''>
+<circle cx='66.125' cy='281.6' r='10' style='opacity: 0'/>
+</a>
+<text x='198.375' y='275.6' class='dataPointLabelBackground'>1.00</text>
+<text x='198.375' y='275.6' class='dataPointLabel'>1.00</text>
+<a xlink:href=''>
+<circle cx='198.375' cy='281.6' r='10' style='opacity: 0'/>
+</a>
+<text x='198.375' y='134.79999999999998' class='dataPointLabelBackground'>3.00</text>
+<text x='198.375' y='134.79999999999998' class='dataPointLabel'>3.00</text>
+<a xlink:href=''>
+<circle cx='198.375' cy='140.79999999999998' r='10' style='opacity: 0'/>
+</a>
+<text x='330.625' y='205.2' class='dataPointLabelBackground'>2.00</text>
+<text x='330.625' y='205.2' class='dataPointLabel'>2.00</text>
+<a xlink:href=''>
+<circle cx='330.625' cy='211.2' r='10' style='opacity: 0'/>
+</a>
+<text x='330.625' y='346.0' class='dataPointLabelBackground'>0.00</text>
+<text x='330.625' y='346.0' class='dataPointLabel'>0.00</text>
+<a xlink:href=''>
+<circle cx='330.625' cy='352.0' r='10' style='opacity: 0'/>
+</a>
+<text x='462.875' y='205.2' class='dataPointLabelBackground'>2.00</text>
+<text x='462.875' y='205.2' class='dataPointLabel'>2.00</text>
+<a xlink:href=''>
+<circle cx='462.875' cy='211.2' r='10' style='opacity: 0'/>
+</a>
+<text x='462.875' y='134.79999999999998' class='dataPointLabelBackground'>3.00</text>
+<text x='462.875' y='134.79999999999998' class='dataPointLabel'>3.00</text>
+<a xlink:href=''>
+<circle cx='462.875' cy='140.79999999999998' r='10' style='opacity: 0'/>
+</a>
+</g>
+</g>
+<text x='320' y='16' class='mainTitle'>Measurements</text>
+<g transform='translate(585.0 36)'>
+<rect x='0' y='0' width='12' height='12' class='key1'/>
+<text x='17' y='12' class='keyText'>First</text>
+<rect x='0' y='17' width='12' height='12' class='key2'/>
+<text x='17' y='29' class='keyText'>Second</text>
+</g>
+</svg>
