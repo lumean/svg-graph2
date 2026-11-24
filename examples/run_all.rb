@@ -1,5 +1,5 @@
 # executes all examples
-require 'svggraph'
+require_relative '../lib/svggraph.rb'
 
 puts SVG::Graph::VERSION
 

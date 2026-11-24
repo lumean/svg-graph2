@@ -3,20 +3,20 @@ require_relative 'Graph'
 
 module SVG
   module Graph
-		# = Synopsis
-		#
-		# A superclass for bar-style graphs.  Do not attempt to instantiate
-		# directly; use one of the subclasses instead.
-		#
+    # = Synopsis
+    #
+    # A superclass for bar-style graphs.  Do not attempt to instantiate
+    # directly; use one of the subclasses instead.
+    #
     # = Author
     #
     # Sean E. Russell <serATgermaneHYPHENsoftwareDOTcom>
-		#
-    # Copyright 2004 Sean E. Russell
-		# This software is available under the Ruby license[LICENSE.txt]
     #
-    class BarBase < SVG::Graph::Graph
-			# Ensures that :fields are provided in the configuration.
+    # Copyright 2004 Sean E. Russell
+    # This software is available under the Ruby license[LICENSE.txt]
+    #
+    class BarBase < Graph
+      # Ensures that :fields are provided in the configuration.
       def initialize config
         raise "fields was not supplied or is empty" unless config[:fields] &&
         config[:fields].kind_of?(Array) &&
@@ -44,8 +44,16 @@ module SVG
       attr_accessor :show_actual_values
       protected
 
+      # apply an offset, to move the label to the middle of the Bar
+      def x_label_offset(width)
+        # Horizontal Bars don't center the x label text
+        return 0 if instance_of?(BarHorizontal)
+
+        width / 2.0
+      end
+
       # space in px between x-labels, we override the Graph version because
-      # we need the extra space (i.e. don't subtract 1 from get_x_labels.length)
+      # we need the extra space because of the "x_label_offset"
       def field_width
         # don't use -1 otherwise bar is out of bounds
         @graph_width.to_f / ( get_x_labels.length )

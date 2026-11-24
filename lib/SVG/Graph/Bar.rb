@@ -83,15 +83,10 @@ module SVG
         end
 
         rv = []
-        if maxvalue%@y_scale_division != 0
-          maxvalue = maxvalue + @y_scale_division
-        end
+        maxvalue += @y_scale_division if maxvalue % @y_scale_division != 0
+
         minvalue.step( maxvalue, @y_scale_division ) {|v| rv << v}
         return rv
-      end
-
-      def x_label_offset( width )
-        width / 2.0
       end
 
       def draw_data

@@ -109,10 +109,6 @@ module SVG
         return rv
       end
 
-      def x_label_offset( width )
-        width / 2.0
-      end
-
       def draw_data
         minvalue = min_value
         fieldwidth = field_width

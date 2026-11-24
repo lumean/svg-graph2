@@ -57,6 +57,13 @@ module SVG
     # This software is available under the Ruby license[LICENSE.txt]
     #
     class Graph
+      POINT_SYMBOLS = {
+        'circle' => ['circle', { 'cx' => 0, 'cy' => 0, 'r' => 2.5 }],
+        'square' => ['rect', { 'x' => -2.5, 'y' => -2.5, 'width' => 5, 'height' => 5 }],
+        'triangle' => ['polygon', { 'points' => '0,-3 -3,3 3,3' }],
+        'diamond' => ['polygon', { 'points' => '0,-3 3,0 0,3 -3,0' }],
+        'cross' => ['path', { 'd' => 'M-3 -3 L3 3 M3 -3 L-3 3', 'fill' => 'none' }]
+      }
       include REXML
 
       # Initialize the graph object with the graph settings.  You won't
@@ -402,6 +409,10 @@ module SVG
       attr_accessor :show_graph_subtitle
       #   What the subtitle on the graph should be.
       attr_accessor :graph_subtitle
+      # Optional text alternatives for assistive technology.
+      attr_accessor :accessible_title, :accessible_description
+      # Named SVG elements, defined once and reused for data points.
+      attr_accessor :point_symbols
       #   Whether to show a key (legend), defaults to true, set to
       #   false if you want to hide it.
       attr_accessor :key
@@ -620,6 +631,19 @@ module SVG
         end # if add_popups
       end # def add_popup
 
+      def draw_point_shape(x, y, line, selection)
+        symbol_id = @point_symbol_ids && @point_symbol_ids[selection]
+        if symbol_id
+          @graph.add_element('use', {
+            'xlink:href' => "##{symbol_id}",
+            'transform' => "translate(#{x} #{y})",
+            'class' => "dataPoint#{line}"
+          })
+        else
+          DataPoint.new(x, y, line).shape(selection).each { |shape| @graph.add_element(*shape) }
+        end
+      end
+
       # returns the longest label from an array of labels as string
       # each object in the array must support .to_s
       def get_longest_label(arry)
@@ -692,11 +716,13 @@ module SVG
         relative_position = calculate_rel_position(get_y_labels, field_height, @x_axis_position, @graph_height)
         # X-Axis
         y_offset = (1 - relative_position) * @graph_height
-        @graph.add_element( "path", {
-          "d" => "M 0 #{y_offset} h#@graph_width",
-          "class" => "axis",
-          "id" => "yAxis"
-        })
+        @graph.add_element(
+          'path', {
+            'd' => "M 0 #{y_offset} h#{@graph_width}",
+            'class' => 'axis',
+            'id' => 'yAxis'
+          }
+        )
       end
 
       # draws the y-axis; can be overridden by child classes
@@ -705,11 +731,13 @@ module SVG
         relative_position = calculate_rel_position(get_x_labels, field_width, @y_axis_position, @graph_width)
         # Y-Axis
         x_offset = relative_position * @graph_width
-        @graph.add_element( "path", {
-          "d" => "M #{x_offset} 0 v#@graph_height",
-          "class" => "axis",
-          "id" => "xAxis"
-        })
+        @graph.add_element(
+          'path', {
+            'd' => "M #{x_offset} 0 v#{@graph_height}",
+            'class' => 'axis',
+            'id' => 'xAxis'
+          }
+        )
       end
 
       # calculates the relative position betewen 0 and 1 of a value on the axis
@@ -732,13 +760,13 @@ module SVG
         # p value
         # p axis_length
         relative_position = 0
-        if !value.nil? # only
+        unless value.nil? # only
           if (labels[0].is_a? Numeric) && (labels[-1].is_a? Numeric) && (value.is_a? Numeric)
             # labels are numeric, compute relative position between first and last value
             range = labels[-1] - labels[0]
             position = value - labels[0]
             # compute how many segments long the offset is
-            relative_to_segemts = position/range * (labels.size - 1)
+            relative_to_segemts = position / range * (labels.size - 1)
             # convert from segments to relative position on the axis axis,
             # the number of segments (i.e. relative_to_segemts >= 1)
             relative_position = relative_to_segemts * segment_px / axis_length
@@ -746,18 +774,18 @@ module SVG
             # labels are strings, see if one of label matches with the position
             # and place the axis there
             index = labels.index(value)
-            if !index.nil? # index would be nil if label is not found
+            unless index.nil? # index would be nil if label is not found
               offset_px = segment_px * index
-              relative_position = offset_px/axis_length   # between 0 and 1
+              relative_position = offset_px / axis_length # between 0 and 1
             end
           end
         end # value.nil?
-        return relative_position
+        relative_position
       end
 
       # Where in the X area the label is drawn
       # Centered in the field, should be width/2.  Start, 0.
-      def x_label_offset( width )
+      def x_label_offset(_width)
         0
       end
 
@@ -770,14 +798,12 @@ module SVG
       # adds the datapoint text to the graph only if the config option is set
       def make_datapoint_text( x, y, value, style="" )
         if show_data_values
-          textStr = value
-          if( numeric?(value) )
-            textStr = @number_format % value
-          end
+          text_str = value
+          text_str = @number_format % value if numeric?(value)
           # change anchor is label overlaps axis, normally anchor is middle (that's why we compute length/2)
-          if x < textStr.length/2 * font_size
+          if x < text_str.length/2 * font_size
             style << "text-anchor: start;"
-          elsif x > @graph_width - textStr.length/2 * font_size
+          elsif x > @graph_width - text_str.length/2 * font_size
             style << "text-anchor: end;"
           end
           # background for better readability
@@ -786,7 +812,7 @@ module SVG
             "y" => y.to_s,
             "class" => "dataPointLabelBackground",
           })
-          text.text = textStr
+          text.text = text_str
           text.attributes["style"] = style if style.length > 0
           # actual label
           text = @foreground.add_element( "text", {
@@ -794,7 +820,7 @@ module SVG
             "y" => y.to_s,
             "class" => "dataPointLabel"
           })
-          text.text = textStr
+          text.text = text_str
           text.attributes["style"] = style if style.length > 0
         end
       end
@@ -807,22 +833,19 @@ module SVG
         stagger = x_label_font_size + 5
         label_width = field_width
         count = 0
-        x_axis_already_drawn = false
-        for label in get_x_labels
-          if step_include_first_x_label == true then
+        get_x_labels.each do |label|
+          if step_include_first_x_label then
             step = count % step_x_labels
           else
             step = (count + 1) % step_x_labels
           end
           # only draw every n-th label as defined by step_x_labels
-          if step == 0 && show_x_labels then
-            textStr = label.to_s
-            if( numeric?(label) )
-              textStr = @number_format % label
-            end
+          if step.zero? && show_x_labels
+            text_str = label.to_s
+            text_str = @number_format % label if numeric?(label)
             text = @graph.add_element( "text" )
             text.attributes["class"] = "xAxisLabels"
-            text.text = textStr
+            text.text = text_str
 
             x = count * label_width + x_label_offset( label_width )
             y = @graph_height + x_label_font_size + 3
@@ -884,13 +907,12 @@ module SVG
 
       # space in px between the y-labels
       def field_height
-        #(@graph_height.to_f - font_size*2*top_font) /
+        # (@graph_height.to_f - font_size*2*top_font) /
         #   (get_y_labels.length - top_align)
         @graph_height.to_f / get_y_labels.length
       end
 
-
-      # Draws the Y axis labels, the Y-Axis (@graph_height) is divided equally into #get_y_labels.lenght sections
+      # Draws the Y axis labels, the Y-Axis (@graph_height) is divided equally into #get_y_labels.length sections
       # So the y coordinate for an arbitrary value is calculated as follows:
       #   y = @graph_height equals the min_value
       #   #normalize value of a single scale_division:
@@ -904,39 +926,37 @@ module SVG
         count = 0
         y_offset = @graph_height + y_label_offset( label_height )
         y_offset += font_size/3.0
-        for label in get_y_labels
+        get_y_labels.each do |label|
           if show_y_labels
             # x = 0, y = 0 is top left right next to graph area
             y = y_offset - (label_height * count)
-            # instead of calculating the middle anchor position, simply use
-            # static offset and anchor end to right-align the labels. See line :936 below.
-            #x = -label_width/2.0 + y_label_font_size/2.0
             x = 3
 
-            if stagger_y_labels and count % 2 == 1
+            if stagger_y_labels && count % 2 == 1
               x -= stagger
-              @graph.add_element( "path", {
-                "d" => "M0 #{y} h#{-stagger}",
-                "class" => "staggerGuideLine"
-              })
+              @graph.add_element(
+                'path', {
+                  'd' => "M0 #{y} h#{-stagger}",
+                  'class' => 'staggerGuideLine'
+                }
+              )
             end
 
-            text = @graph.add_element( "text", {
-              "x" => x.to_s,
-              "y" => y.to_s,
-              "class" => "yAxisLabels"
-            })
-            textStr = label.to_s
-            if( numeric?(label) )
-              textStr = @number_format % label
-            end
-            text.text = textStr
+            text = @graph.add_element(
+              'text', {
+                'x' => x.to_s,
+                'y' => y.to_s,
+                'class' => 'yAxisLabels'
+              }
+            )
+            text_str = label.to_s
+            text_str = @number_format % label if numeric?(label)
+            text.text = text_str
             # note text-anchor is at bottom of textfield
-            #text.attributes["style"] = "text-anchor: middle"
-            text.attributes["style"] = "text-anchor: end"
+            text.attributes['style'] = 'text-anchor: end'
             degrees = rotate_y_labels
-            text.attributes["transform"] = "translate( -#{font_size} 0 ) " +
-                "rotate( #{degrees} #{x} #{y} ) "
+            text.attributes['transform'] =
+              "translate( -#{font_size} 0 ) rotate( #{degrees} #{x} #{y} ) "
             # text.attributes["y"] = (y - (y_label_font_size/2)).to_s
 
           end # if show_y_labels
@@ -1130,6 +1150,9 @@ module SVG
       # svg is added.
       #
       def start_svg
+        if (accessible_title || accessible_description) && accessible_title.to_s.empty?
+          raise ArgumentError, ':accessible_title must be non-empty when provided or used with :accessible_description'
+        end
         # Base document
         @doc = Document.new
         @doc << XMLDecl.new
@@ -1149,6 +1172,11 @@ module SVG
           "xmlns:a3" => "http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/",
           "a3:scriptImplementation" => "Adobe"
         })
+        if accessible_title || accessible_description
+          @root.attributes['role'] = 'img'
+          @root.add_element('title').text = accessible_title.to_s if accessible_title
+          @root.add_element('desc').text = accessible_description.to_s if accessible_description
+        end
         @root << Comment.new( " "+"\\"*66 )
         @root << Comment.new( " Created with SVG::Graph " )
         @root << Comment.new( " SVG::Graph by Sean E. Russell " )
@@ -1158,6 +1186,26 @@ module SVG
 
         defs = @root.add_element( "defs" )
         add_defs defs
+        @point_symbol_ids = {}
+        if point_symbols
+          raise ArgumentError, ':point_symbols must be a hash' unless point_symbols.is_a?(Hash)
+          point_symbols.each_with_index do |(name, shape), index|
+            if shape.is_a?(Symbol)
+              shape = POINT_SYMBOLS.fetch(shape.to_s) do
+                raise ArgumentError, "Unknown point symbol: #{shape}"
+              end
+            end
+            unless (name.is_a?(String) || name.is_a?(Symbol)) && shape.is_a?(Array) &&
+                   shape.length == 2 && shape[0].is_a?(String) && shape[1].is_a?(Hash)
+              raise ArgumentError, 'Each point symbol must have a name and a [tag, attributes] definition'
+            end
+            name = name.to_s
+            raise ArgumentError, "Duplicate point symbol: #{name}" if @point_symbol_ids.key?(name)
+            id = "svg-graph-#{object_id}-#{@doc.object_id}-point-#{index}"
+            defs.add_element('g', { 'id' => id }).add_element(shape[0], shape[1])
+            @point_symbol_ids[name] = id
+          end
+        end
         if !no_css
           if inline_style_sheet && inline_style_sheet != ''
             style = defs.add_element( "style", {"type"=>"text/css"} )

@@ -1,5 +1,4 @@
 require 'date'
-require_relative 'Plot'
 
 module SVG
   module Graph

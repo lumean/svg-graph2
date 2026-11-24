@@ -95,6 +95,47 @@ File.open('bar.svg', 'w') {|f| f.write(g.burn_svg_only)}
 
 ### Plot
 
+Plot and TimeSeries also accept explicit point rows. Each row contains
+`[x, y, description, shape, url]`; the last three entries are optional. For
+TimeSeries, x can be a time string, `Time`, or integer timestamp.
+
+```ruby
+graph = SVG::Graph::Plot.new(width: 640, height: 300, add_popups: true)
+graph.add_data(
+  title: 'Measurements',
+  points: [[2, 4, 'second'], [1, 3, 'first']]
+)
+```
+
+Use either `points` or the existing `data` argument, not both. With `points`,
+put descriptions, shapes and URLs in the rows rather than separate arrays.
+Existing `data` inputs and subclass-facing data storage remain unchanged.
+
+#### Reusable point symbols
+
+Line, Plot and TimeSeries can reuse named SVG elements for points. Built-in
+symbols are `:circle`, `:square`, `:triangle`, `:diamond` and `:cross`.
+Custom definitions use `[element_name, attributes]` with coordinates relative
+to the point:
+
+```ruby
+graph = SVG::Graph::Plot.new(
+  point_symbols: {
+    square: :square,
+    marker: ['path', { 'd' => 'M0 -4 L4 4 L-4 4 Z' }]
+  }
+)
+graph.add_data(title: 'Measurements',
+               points: [[1, 3, nil, 'square'], [2, 4, nil, 'marker']])
+```
+
+Definitions are emitted once in SVG `defs` and referenced by `use`. If the
+selected shape (or, when absent, description) matches a configured symbol,
+the symbol takes precedence over `DataPoint` shape criteria; otherwise the
+existing criteria and overlays work as before. Symbols inherit the series
+`dataPointN` CSS class. Subclasses that draw points themselves must opt in by
+calling the protected `draw_point_shape` helper.
+
 ![example plot graph](https://cdn.rawgit.com/lumean/svg-graph2/master/examples/plot.svg)
 
 ### Schedule
@@ -111,12 +152,41 @@ Source: [C3js.rb](../master/examples/c3js.rb)
 
 [Link to Preview](https://cdn.rawgit.com/lumean/svg-graph2/master/examples/c3js.html)
 
+### Accessibility
+
+For `Graph`-based charts (not C3js), provide a concise accessible name and,
+optionally, a longer description:
+
+```ruby
+graph = SVG::Graph::Plot.new(
+  accessible_title: 'Monthly measurements',
+  accessible_description: 'Measurements increased from 3 to 4.'
+)
+```
+
+These add SVG `title` and `desc` elements and an image role. A description
+requires a title. This does not make the chart fully accessible: existing
+popups are mouse-driven, and color, contrast, keyboard access and a suitable
+text or table alternative still need to be considered by the application.
+
+### Extending charts
+
+`Graph` owns shared rendering and configuration, `Plot` owns numeric point
+storage and scaling, and `TimeSeries` converts time values before using Plot.
+Custom subclasses may override drawing and range methods and may inspect
+`@data` as parallel x/y arrays; those existing extension points are retained.
+`DataPoint` shape criteria are global, so configuring them affects all charts.
+
 
 Build
 -----
 * Test
 
 `bundle exec rake`
+
+* Check the existing RuboCop baseline:
+
+`bundle exec rubocop`
 
 * Build gem:
 
